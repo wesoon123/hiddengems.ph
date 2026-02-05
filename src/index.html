@@ -6,9 +6,12 @@
     <title>Hidden Gems PH | Home</title>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
-    <link href="./index.css" rel="stylesheet" type="text/css">
-    <script type="module" src="./index.js" defer></script>
+    <link href="./css/index.css" rel="stylesheet" type="text/css">
+    <script type="module" src="./js/index.js" defer></script>
+    <!-- <script type="module" src="./js/postsStore.js"></script>
+    <script type="module" src="./js/alpine.card.js"></script> -->
 </head>
+
 <body
     
     class="font-roboto bg-gray-100 min-h-screen">
@@ -41,392 +44,196 @@
                    <li class="bg-primary p-2 rounded-lg text-gray-800 hover:scale-120 transition-transform duration-500 ease-in-out cursor-pointer">Staycation</li>
                 </ul>
             </section>
-            <section>
-                <div x-data="{ isOpen: false }"
-                    x-effect="document.body.classList.toggle('noscroll', isOpen)" 
-                    class="columns-1 gap-3 space-y-3 pb-28 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
-                    <!-- Cards -->
-                    <div @click="isOpen = true"
-                        x-ref="daanbantayan_kdc07u" 
-                    
-                    class="relative rounded-lg shadow-md hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763363930/daanbantayan_kdc07u.jpg" 
-                            class="rounded-lg" 
-                            alt="Ocean Destinations">
-                        <div class="absolute inset-0 flex flex-col justify-between p-4">
-                            <div class="w-8 h-8 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" 
-                                fill="none" viewBox="0 0 24 24" 
-                                stroke-width="2" stroke="currentColor" 
-                                class="w-4 h-4 text-black">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                            </svg>
-                            </div>
-                            <div>
-                            <h2 class="text-black text-[clamp(1rem,1.5vw,1.3rem)] font-semibold">Daanbantayan</h2>
-                            <button class="mt-3 bg-black/80 text-white px-4 py-1 rounded-full text-[clamp(1rem,.75vw,1rem)]">
-                                Explore Now
-                            </button>
+            <section x-data="placesApp()" x-init="init()">
+                <div class="columns-1 gap-3 space-y-3 pb-28 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+                    <!-- Place Cards -->
+                    <template x-for="place in places" :key="place.id">
+                        <div x-data="{ isOpen: false }"
+                             x-effect="document.body.classList.toggle('noscroll', isOpen)">
+                            <!-- Card -->
+                            <div @click="openModal(place.id)"
+                                class="relative rounded-lg shadow-md hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer">
+                                <img :src="place.thumbnail" 
+                                    class="rounded-lg w-full" 
+                                    :alt="place.name + ' Destination'">
+                                <div class="absolute inset-0 flex flex-col justify-between p-4">
+                                    <div class="w-8 h-8 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" 
+                                            fill="none" viewBox="0 0 24 24" 
+                                            stroke-width="2" stroke="currentColor" 
+                                            class="w-4 h-4 text-black">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-black text-[clamp(1rem,1.5vw,1.3rem)] font-semibold drop-shadow-lg" x-text="place.name"></h2>
+                                        <button class="mt-3 bg-black/80 text-white px-4 py-1 rounded-full text-[clamp(0.75rem,.75vw,1rem)]">
+                                            Explore Now
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--modal-->
-                    <!-- Overlay -->
-                    <div x-show="isOpen"
-                    @keydown.escape.window="isOpen = false"
-                    @click.self="isOpen = false"
-                    x-ref="daanbantayan_kdc07u" 
-                    class="fixed inset-0 bg-black/50 flex items-center justify-center p-4">
-                        <!-- Modal Box -->
-                        <div
+                    </template>
+                </div>
+
+                <!-- Modal -->
+                <div x-show="modalOpen"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    @keydown.escape.window="closeModal()"
+                    @click.self="closeModal()" 
+                    class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+                    x-cloak>
+                    
+                    <!-- Modal Box -->
+                    <div x-show="modalOpen"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform scale-95"
+                        x-transition:enter-end="opacity-100 transform scale-100"
                         x-data="{accordionOpen: null}"
-                        class="bg-white w-full max-w-4xl p-6 rounded-2xl shadow-xl animate-[fadeUp_0.35s_ease] 
-                                    max-h-[90vh] overflow-y-auto">
-                            
-                            <h2 class="text-xl font-semibold mb-3 text-gray-800 md:text-2xl">Daanbantayan</h2>
-                            <section class="splide" aria-label="Splide Basic HTML Example">
-                                <div class="splide__track">
-                                        <ul class="splide__list grid gap-2">
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539584/img05_prvaob.jpg" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539583/img06_afwmtb.webp" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539583/img09_zhgfiw.webp" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539582/img04_tvcrjv.jpg" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539582/img07_eszy7v.webp" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539582/img08_pte4f1.jpg" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539582/img01_qoi1z9.jpg" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539582/img03_hvqozj.jpg" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                            <li class="splide__slide"><img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763539582/img02_yxjmeu.jpg" alt="Daanbantayan Image" class="w-auto h-90 object-cover rounded-lg mb-4"></li>
-                                        </ul>
-                                </div>
-                            </section>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Daanbantayan is a charming municipality located in the northern part of Cebu Island, Philippines. Known for its pristine beaches, crystal-clear waters, and vibrant marine life, it is a popular destination for tourists seeking a tranquil escape. The area offers various activities such as snorkeling, diving, and island hopping to nearby attractions like Malapascua Island, famous for its thresher sharks. Daanbantayan also boasts a rich cultural heritage with local festivals and traditional cuisine that visitors can enjoy. Whether you're looking for adventure or relaxation, Daanbantayan provides a perfect blend of both in a picturesque setting.
-                            </p>
-                        <div class="space-y-4 mb-6">    
-                            <div 
-                            class="px-5
-                                   pb-4 
-                                   p-5 
-                                   text-gray-700 
-                                   leading-relaxed
-                                   flex
-                                   justify-between
-                                   bg-gray-400/20
-                                   hover:bg-gray-400/30
-                                   cursor-pointer
-                                   rounded-2xl
-                                   shadow-2xl
-                                   text-md
-                                   " 
-                            @click="accordionOpen == 1 ? accordionOpen = null : accordionOpen = 1">How to get there<img class="w-5 h-5 ml-2" src="./images-icon/icons8-arrow-down-50.png"/>
-                            </div>
-                            <div class="
-                                        px-5
-                                        pb-4 
-                                        p-5 
-                                        text-gray-700 
-                                        leading-relaxed
-                                        flex
-                                        justify-between
-                                        bg-gray-100/20
-                                        hover:bg-gray-100/30
-                                        rounded-2xl
-                                        shadow-2xl
-                                        text-md
-                            "
-                            x-show="accordionOpen == 1" 
-                            x-collapse.duration.500ms 
-                            x-transition>
-                                <p class="text-gray-600 mb-6 leading-relaxed">
-                                To reach Daanbantayan, you can start by flying into Mactan-Cebu International Airport, which is the nearest major airport. From there, you can take a taxi or a shuttle service to the Cebu North Bus Terminal. At the terminal, board a bus heading to Maya Port, which is the main gateway to Daanbantayan. The bus ride typically takes around 3 to 4 hours, depending on traffic conditions. Once you arrive at Maya Port, you can take a short boat ride to Malapascua Island or other nearby islands if desired. Alternatively, private car rentals or van services are also available for a more comfortable and direct journey to Daanbantayan.
-                                </p>
-                            </div>
-                            <div 
-                            class="px-5
-                                   pb-4 
-                                   p-5 
-                                   text-gray-700 
-                                   leading-relaxed
-                                   flex
-                                   justify-between
-                                   bg-gray-400/20
-                                   hover:bg-gray-400/30
-                                   cursor-pointer
-                                   rounded-2xl
-                                   shadow-2xl
-                                   text-md
-                                   " 
-                            @click="accordionOpen == 2 ? accordionOpen = null : accordionOpen = 2">Accomdation<img class="w-5 h-5 ml-2" src="./images-icon/icons8-arrow-down-50.png"/>
-                            </div>
-                            <div class="
-                                        px-5
-                                        pb-4 
-                                        p-5 
-                                        text-gray-700 
-                                        leading-relaxed
-                                        flex
-                                        justify-between
-                                        bg-gray-100/20
-                                        hover:bg-gray-100/30
-                                        rounded-2xl
-                                        shadow-2xl
-                                        text-md
-                            "
-                            x-show="accordionOpen == 2" 
-                            x-collapse.duration.500ms 
-                            x-transition>
-                                <p class="text-gray-600 mb-6 leading-relaxed">
-                                Daanbantayan offers a variety of accommodation options to suit different preferences and budgets. Visitors can choose from beachfront resorts, boutique hotels, and budget-friendly guesthouses. Many resorts provide stunning views of the ocean, private beach access, and amenities such as swimming pools, restaurants, and spa services. For those seeking a more authentic experience, there are also homestays and inns run by local families, allowing guests to immerse themselves in the local culture. It is advisable to book accommodations in advance, especially during peak travel seasons, to ensure availability and secure the best rates.
-                                </p>
-                            </div>
-                            <div 
-                            class="px-5
-                                   pb-4 
-                                   p-5 
-                                   text-gray-700 
-                                   leading-relaxed
-                                   flex
-                                   justify-between
-                                   bg-gray-400/20
-                                   hover:bg-gray-400/30
-                                   cursor-pointer
-                                   rounded-2xl
-                                   shadow-2xl
-                                   text-md
-                                   " 
-                            @click="accordionOpen == 3 ? accordionOpen = null : accordionOpen = 3">Places to Visit<img class="w-5 h-5 ml-2" src="./images-icon/icons8-arrow-down-50.png"/>
-                            </div>
-                            <div class="
-                                        px-5
-                                        pb-4 
-                                        p-5 
-                                        text-gray-700 
-                                        leading-relaxed
-                                        flex
-                                        justify-between
-                                        bg-gray-100/20
-                                        hover:bg-gray-100/30
-                                        rounded-2xl
-                                        shadow-2xl
-                                        text-md
-                            "
-                            x-show="accordionOpen == 3" 
-                            x-collapse.duration.500ms 
-                            x-transition>
-                                <p class="text-gray-600 mb-6 leading-relaxed">
-                                Daanbantayan is home to several must-visit attractions that showcase its natural beauty and cultural heritage. One of the most popular destinations is Malapascua Island, renowned for its diving spots and the chance to see thresher sharks. Visitors can also explore the stunning beaches of Carnaza Island, known for its white sands and clear waters. The town itself features historical sites such as the Sts. Peter and Paul Church, which dates back to the Spanish colonial period. Additionally, nature enthusiasts can visit the nearby Gato Island Marine Sanctuary, a haven for snorkeling and diving with its vibrant coral reefs and diverse marine life.
-                                </p>
-                            </div>
-                            <div 
-                            class="px-5
-                                   pb-4 
-                                   p-5 
-                                   text-gray-700 
-                                   leading-relaxed
-                                   flex
-                                   justify-between
-                                   bg-gray-400/20
-                                   hover:bg-gray-400/30
-                                   cursor-pointer
-                                   rounded-2xl
-                                   shadow-2xl
-                                   text-md
-                                   " 
-                            @click="accordionOpen == 4 ? accordionOpen = null : accordionOpen = 4">Food<img class="w-5 h-5 ml-2" src="./images-icon/icons8-arrow-down-50.png"/>
-                            </div>
-                            <div class="
-                                        px-5
-                                        pb-4 
-                                        p-5 
-                                        text-gray-700 
-                                        leading-relaxed
-                                        flex
-                                        justify-between
-                                        bg-gray-100/20
-                                        hover:bg-gray-100/30
-                                        rounded-2xl
-                                        shadow-2xl
-                                        text-md
-                            "
-                            x-show="accordionOpen == 4" 
-                            x-collapse.duration.500ms 
-                            x-transition>
-                                <div class="bg-gray-300 text-white max-w-md w-full p-3 rounded-xl shadow-md
-                                grid grid-cols-[1fr_auto] gap-3 items-start">
-                                    <!-- LEFT CONTENT -->
-                                    <div class="space-y-1">
-                                        <h2 class="text-lg font-semibold text-black">Guanna's Place restaurant</h2>
-
-                                        <div class="flex items-center text-sm text-gray-300 flex-wrap gap-2">
-                                            <!-- Stars -->
-                                            <div class="flex text-yellow-400">
-                                                ★★★★☆
-                                            </div>
-
-                                            <span class="text-gray-400">4.7</span>
-                                            <span class="text-gray-500">(121)</span>
-
-                                            <span class="text-gray-400">· ₱200–400 · Restaurant</span>
-                                        </div>
-
-                                        <!-- Code / Location Tag -->
-                                        <p class="text-gray-500 text-[11px]">84H9+G25</p>
-
-                                        <!-- Review -->
-                                        <p class="text-gray-300 text-xs italic leading-snug">
-                                            "The <span class="font-semibold">food</span> and the service were perfect and for a good price."
-                                        </p>
-                                    </div>
-                                    <img 
-                                        src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763538191/unnamed_eahpcp.webp"
-                                        alt="Restaurant"
-                                        class="w-24 h-24 object-cover rounded-lg"
-                                    />
-                                    <div class="space-y-1">
-                                        <h2 class="text-lg font-semibold text-black">BEN"DICT FOODS AND BEVERAGES</h2>
-
-                                        <div class="flex items-center text-sm text-gray-300 flex-wrap gap-2">
-                                            <!-- Stars -->
-                                            <div class="flex text-yellow-400">
-                                                ★★★★☆
-                                            </div>
-
-                                            <span class="text-gray-400">3.7</span>
-                                            <span class="text-gray-500">(131)</span>
-
-                                            <span class="text-gray-400">· ₱200–400 · Restaurant</span>
-                                        </div>
-
-                                        <!-- Code / Location Tag -->
-                                        <p class="text-gray-500 text-[11px]">84Q7+GP Daanbantayan, Cebu</p>
-
-                                        <!-- Review -->
-                                        <p class="text-gray-300 text-xs italic leading-snug">
-                                            "The <span class="font-semibold">food</span> and the service were perfect and for a good price."
-                                        </p>
-                                    </div>
-                                    <img 
-                                        src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763540858/img01_dw8ygg.jpg"
-                                        alt="Restaurant"
-                                        class="w-24 h-24 object-cover rounded-lg"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                        class="bg-white w-full max-w-4xl p-6 rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto">
                         
-                        <div class="max-w-2xl mx-auto">
-                            <div class="aspect-video"> <!-- 16:9 aspect ratio -->
-                                <iframe 
-                                class="w-full h-full rounded-xl shadow-2xl"
-                                src="https://www.youtube.com/embed/ebTUlVJ464I"
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-                       
-                            <!-- Actions -->
-                            <div class="flex justify-end gap-3 mt-3">
-                            <button @click="isOpen = false" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-pointer">
-                                Close
-                            </button>
-                            </div>
+                        <template x-if="selectedPlace">
+                            <div>
+                                <!-- Header -->
+                                <h2 class="text-1xl font-semibold mb-3 text-gray-800 md:text-3xl" x-text="selectedPlace.name"></h2>
+                                <p class="text-sm font-semibold text-gray-800 mb-3 md:text-md flex items-center">
+                                    <span x-text="selectedPlace.subtitle"></span>
+                                    <a :href="selectedPlace.locationLink" target="_blank">
+                                        <img src="./images-icon/icons8-location-50.png" alt="Location" 
+                                            class="w-6 h-6 ml-3 hover:scale-125 transition-transform duration-100 ease-in-out cursor-pointer"/>
+                                    </a>
+                                </p>
 
-                        </div>
+                                <!-- Image Carousel -->
+                                <div class="splide mb-4" :id="'splide-' + selectedPlace.id">
+                                    <div class="splide__track">
+                                        <ul class="splide__list">
+                                            <template x-for="(img, index) in selectedPlace.images" :key="index">
+                                                <li class="splide__slide">
+                                                    <img :src="img" :alt="selectedPlace.name + ' Image'" 
+                                                        class="w-full h-80 object-cover rounded-lg">
+                                                </li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Hashtags -->
+                                <ul class="flex flex-wrap justify-center gap-2 text-gray-500 mb-4">
+                                    <template x-for="tag in selectedPlace.hashtags" :key="tag">
+                                        <li class="border p-1 rounded-lg text-gray-800 text-sm" x-text="tag"></li>
+                                    </template>
+                                </ul>
+
+                                <!-- Description -->
+                                <p class="text-gray-600 mb-6 leading-relaxed" x-text="selectedPlace.description"></p>
+
+                                <!-- Accordions -->
+                                <div class="space-y-4 mb-6">
+                                    <!-- How to get there -->
+                                    <div class="px-5 py-4 text-gray-700 leading-relaxed flex justify-between items-center
+                                                bg-gray-400/20 hover:bg-gray-400/30 cursor-pointer rounded-2xl shadow-md"
+                                        @click="accordionOpen = accordionOpen === 1 ? null : 1">
+                                        <span>How to get there</span>
+                                        <img class="w-5 h-5 transition-transform" 
+                                            :class="accordionOpen === 1 ? 'rotate-180' : ''"
+                                            src="./images-icon/icons8-arrow-down-50.png"/>
+                                    </div>
+                                    <div x-show="accordionOpen === 1" x-collapse.duration.500ms x-transition
+                                        class="px-5 py-4 bg-gray-100/50 rounded-2xl">
+                                        <p class="text-gray-600 leading-relaxed" x-text="selectedPlace.accordions.howToGetThere"></p>
+                                    </div>
+
+                                    <!-- Accommodation -->
+                                    <div class="px-5 py-4 text-gray-700 leading-relaxed flex justify-between items-center
+                                                bg-gray-400/20 hover:bg-gray-400/30 cursor-pointer rounded-2xl shadow-md"
+                                        @click="accordionOpen = accordionOpen === 2 ? null : 2">
+                                        <span>Accommodation</span>
+                                        <img class="w-5 h-5 transition-transform" 
+                                            :class="accordionOpen === 2 ? 'rotate-180' : ''"
+                                            src="./images-icon/icons8-arrow-down-50.png"/>
+                                    </div>
+                                    <div x-show="accordionOpen === 2" x-collapse.duration.500ms x-transition
+                                        class="px-5 py-4 bg-gray-100/50 rounded-2xl">
+                                        <p class="text-gray-600 leading-relaxed" x-text="selectedPlace.accordions.accommodation"></p>
+                                    </div>
+
+                                    <!-- Places to Visit -->
+                                    <div class="px-5 py-4 text-gray-700 leading-relaxed flex justify-between items-center
+                                                bg-gray-400/20 hover:bg-gray-400/30 cursor-pointer rounded-2xl shadow-md"
+                                        @click="accordionOpen = accordionOpen === 3 ? null : 3">
+                                        <span>Places to Visit</span>
+                                        <img class="w-5 h-5 transition-transform" 
+                                            :class="accordionOpen === 3 ? 'rotate-180' : ''"
+                                            src="./images-icon/icons8-arrow-down-50.png"/>
+                                    </div>
+                                    <div x-show="accordionOpen === 3" x-collapse.duration.500ms x-transition
+                                        class="px-5 py-4 bg-gray-100/50 rounded-2xl">
+                                        <p class="text-gray-600 leading-relaxed" x-text="selectedPlace.accordions.placesToVisit"></p>
+                                    </div>
+
+                                    <!-- Food / Restaurants -->
+                                    <div class="px-5 py-4 text-gray-700 leading-relaxed flex justify-between items-center
+                                                bg-gray-400/20 hover:bg-gray-400/30 cursor-pointer rounded-2xl shadow-md"
+                                        @click="accordionOpen = accordionOpen === 4 ? null : 4">
+                                        <span>Food</span>
+                                        <img class="w-5 h-5 transition-transform" 
+                                            :class="accordionOpen === 4 ? 'rotate-180' : ''"
+                                            src="./images-icon/icons8-arrow-down-50.png"/>
+                                    </div>
+                                    <div x-show="accordionOpen === 4" x-collapse.duration.500ms x-transition
+                                        class="px-5 py-4 bg-gray-100/50 rounded-2xl">
+                                        <div class="grid gap-4 md:grid-cols-2">
+                                            <template x-for="resto in selectedPlace.restaurants" :key="resto.name">
+                                                <div class="bg-gray-200 p-3 rounded-xl shadow-md grid grid-cols-[1fr_auto] gap-3 items-start">
+                                                    <div class="space-y-1">
+                                                        <h3 class="text-lg font-semibold text-black" x-text="resto.name"></h3>
+                                                        <div class="flex items-center text-sm flex-wrap gap-2">
+                                                            <div class="flex text-yellow-400">★★★★☆</div>
+                                                            <span class="text-gray-600" x-text="resto.rating"></span>
+                                                            <span class="text-gray-500" x-text="'(' + resto.reviews + ')'"></span>
+                                                            <span class="text-gray-600" x-text="'· ' + resto.priceRange + ' · ' + resto.type"></span>
+                                                        </div>
+                                                        <p class="text-gray-500 text-xs" x-text="resto.locationCode"></p>
+                                                        <p class="text-gray-600 text-xs italic leading-snug" x-text="'\"' + resto.review + '\"'"></p>
+                                                    </div>
+                                                    <img :src="resto.image" :alt="resto.name"
+                                                        class="w-20 h-20 object-cover rounded-lg"/>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- YouTube Video -->
+                                <div class="max-w-2xl mx-auto mb-6">
+                                    <div class="aspect-video">
+                                        <iframe class="w-full h-full rounded-xl shadow-2xl"
+                                            :src="selectedPlace.youtubeEmbed"
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
+
+                                <!-- Close Button -->
+                                <div class="flex justify-end gap-3">
+                                    <button @click="closeModal()" 
+                                        class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-pointer transition-colors">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </template>
                     </div>
-                    <!-- End of modal -->
-                    <div class="bg-white rounded-lg shadow-md ">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763366418/catmon_b6y16g.jpg" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md ">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763362968/moalboal_oep3xf.avif" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763362967/whaleshark_g76ylx.jpg" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763364107/bantayan_l4fkbo.jpg" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763362967/badian_fcjpia.jpg" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763363208/danao_arrah9.jpg" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763363207/siargao_ejsvmr.jpg" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763363206/palawan_sbxba6.webp" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763364200/pagadian_iemnod.jpg" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763363202/manila-bay_k1ivvp.jpg" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md  break-inside-avoid">
-                        <img src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763363201/dumaguete-negros-oriental-philippines-may-600nw-2497737387_j6vdgv.webp" alt="Destination Image" class="rounded-lg">
-                        <!-- <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Beautiful Beach</h3>
-                            <p class="text-gray-600 mb-4">Experience the serene beauty of this hidden beach with crystal clear waters and white sands.</p>
-                            <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                        </div> -->
-                    </div>
-                    
-                    <!-- Repeat similar cards for more destinations -->
                 </div>
             </section>
         </main>
@@ -482,5 +289,7 @@
             </div>
         </footer>
     </div>
+
 </body>
+
 </html>
