@@ -619,6 +619,52 @@ const places = [
         image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
       }
     ]
+  },
+  {
+    id: "carmen",
+    name: "Carmen, Cebu",
+    subtitle: "Home of the Chocolate Hills of Cebu",
+    thumbnail: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=Carmen+Cebu",
+    hashtags: ["#carmen", "#cebu", "#chocolatehills", "#mountains", "#nature"],
+    categories: ["cebu", "adventure", "mountains", "nature"],
+    description: "Carmen is a mountainous municipality in the heart of Cebu, often called the 'Little Bohol' for its own version of the Chocolate Hills. This hidden gem offers breathtaking panoramic views, cool mountain climate, and lush green landscapes perfect for nature lovers and adventure seekers. The town is known for its agricultural heritage, producing vegetables and flowers that supply markets across Cebu. Visit for stunning viewpoints, peaceful hiking trails, and a refreshing escape from the tropical heat.",
+    images: [
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/8ywQq9bLkGs",
+    accordions: {
+      howToGetThere: "From Cebu City, take a bus from North Bus Terminal heading to Danao or Carmen (1.5-2 hours). You can also rent a car or motorcycle for a scenic drive through the mountains. The road offers beautiful views of terraced farms and mountain landscapes.",
+      accommodation: "Carmen has limited accommodation options - mostly homestays and small inns. For more choices, stay in nearby Danao City or Cebu City and do a day trip. Some eco-lodges offer mountain stays with stunning views.",
+      placesToVisit: "Carmen Highlands for panoramic views, Chocolate Hills viewing deck, vegetable and flower farms, mountain trails for hiking, and the scenic road to Danao with its winding paths and beautiful overlooks."
+    },
+    restaurants: [
+      {
+        name: "Carmen View Deck Eatery",
+        rating: 4.3,
+        reviews: 87,
+        priceRange: "₱100–250",
+        type: "Filipino Cuisine",
+        locationCode: "Carmen Town Center",
+        review: "Simple local dishes with amazing mountain views. Try the fresh vegetables!",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Highland Garden Cafe",
+        rating: 4.4,
+        reviews: 65,
+        priceRange: "₱150–300",
+        type: "Cafe & Garden",
+        locationCode: "Carmen Highlands",
+        review: "Peaceful cafe surrounded by flower gardens. Great coffee and pastries.",
+        image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop"
+      }
+    ]
   }
 ];
 
