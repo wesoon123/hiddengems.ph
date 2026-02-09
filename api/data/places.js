@@ -665,6 +665,52 @@ const places = [
         image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop"
       }
     ]
+  },
+  {
+    id: "mtmago",
+    name: "Mt. Mago",
+    subtitle: "Panoramic Peak in Carmen, Cebu",
+    thumbnail: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=Mt+Mago+Carmen+Cebu",
+    hashtags: ["#mtmago", "#carmen", "#cebu", "#hiking", "#mountains", "#sunrise"],
+    categories: ["cebu", "adventure", "mountains", "hiking"],
+    description: "Mt. Mago is a stunning mountain peak located in Carmen, Cebu, offering breathtaking 360-degree panoramic views of the surrounding landscapes. This hidden gem is perfect for sunrise hikers and adventure seekers looking for an off-the-beaten-path experience. The trail takes you through lush vegetation and rocky terrain, rewarding you with spectacular views of Cebu's mountain ranges, nearby towns, and on clear days, even glimpses of the sea. It's a must-visit destination for nature lovers and photographers seeking that perfect golden hour shot.",
+    images: [
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/ulvLrnKi4Ic",
+    accordions: {
+      howToGetThere: "From Cebu City, take a bus from North Bus Terminal heading to Carmen (approximately 2 hours). From Carmen town proper, you can hire a habal-habal (motorcycle) to take you to the jump-off point. The hike to the summit takes about 1-2 hours depending on your pace. Best to start early for sunrise viewing.",
+      accommodation: "There are no accommodations at Mt. Mago itself, so most hikers do a day trip. You can stay in Carmen town or nearby Danao City. For a more comfortable option, stay in Cebu City and leave very early in the morning to catch the sunrise.",
+      placesToVisit: "Mt. Mago summit for panoramic views, Carmen Highlands, nearby vegetable farms, the scenic drive through mountain roads, and the famous Chocolate Hills-like formations of Carmen. Combine your trip with other Carmen attractions for a full day adventure."
+    },
+    restaurants: [
+      {
+        name: "Carmen Mountain View Eatery",
+        rating: 4.2,
+        reviews: 56,
+        priceRange: "₱80–200",
+        type: "Filipino Cuisine",
+        locationCode: "Carmen Town Proper",
+        review: "Simple local dishes perfect after a morning hike. Try the hot soup and fresh vegetables.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Sunrise Snack House",
+        rating: 4.0,
+        reviews: 38,
+        priceRange: "₱50–150",
+        type: "Snacks & Drinks",
+        locationCode: "Near Mt. Mago Jump-off",
+        review: "Great for quick bites and refreshments before or after your hike. Hot coffee is a must!",
+        image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop"
+      }
+    ]
   }
 ];
 
