@@ -895,6 +895,52 @@ const places = [
         image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
       }
     ]
+  },
+  {
+    id: "campalabosandbar",
+    name: "Hidden Beach Resort & Campalabo Sandbar",
+    subtitle: "Pristine Sandbar Paradise in Pinamungajan, Cebu",
+    thumbnail: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=Campalabo+Sandbar+Pinamungajan+Cebu",
+    hashtags: ["#campalabosandbar", "#pinamungajan", "#cebu", "#sandbar", "#hiddenbeach", "#islandhopping"],
+    categories: ["cebu", "island", "beach", "sandbar"],
+    description: "Campalabo Sandbar is a stunning white sandbar located in Brgy. Tajao, Pinamungajan, Cebu - one of Cebu's best-kept secrets. This pristine strip of white sand emerges during low tide, creating a picture-perfect paradise surrounded by crystal-clear turquoise waters. Just 20 minutes by boat from the mainland, the sandbar offers a serene escape from city life. Combined with nearby Hidden Beach Resort, visitors can enjoy island hopping, snorkeling, swimming, and breathtaking views of the Tañon Strait. A true hidden gem for those seeking unspoiled natural beauty.",
+    images: [
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/7Ybo9_hOc5w",
+    accordions: {
+      howToGetThere: "From Cebu City, take a bus to Pinamungajan (approximately 2 hours). Head to Brgy. Tajao and arrange a boat ride to Campalabo Sandbar (about 20 minutes). Best visited during low tide when the sandbar fully emerges. Local boatmen can also take you to nearby Hidden Beach Resort.",
+      accommodation: "Hidden Beach Resort in Tajao offers cottage accommodations and day-use facilities. For more options, stay in nearby Aloguinsan or Toledo City. Day trips from Cebu City are also popular.",
+      placesToVisit: "Campalabo Sandbar, Hidden Beach Resort, nearby Aloguinsan's hidden waterfalls, Bojo River cruise experience, and the scenic coastal views of Tañon Strait. Combine with Kawasan Falls or Moalboal for a full adventure trip."
+    },
+    restaurants: [
+      {
+        name: "Hidden Beach Resort Restaurant",
+        rating: 4.3,
+        reviews: 87,
+        priceRange: "₱150–350",
+        type: "Filipino Seafood",
+        locationCode: "Tajao, Pinamungajan",
+        review: "Fresh seafood with beachfront dining. Try their grilled fish and kinilaw!",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Tajao Seaside Eatery",
+        rating: 4.1,
+        reviews: 52,
+        priceRange: "₱80–200",
+        type: "Local Eatery",
+        locationCode: "Brgy. Tajao",
+        review: "Simple but delicious local food. Great for budget travelers.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      }
+    ]
   }
 ];
 
