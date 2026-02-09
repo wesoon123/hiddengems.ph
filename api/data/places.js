@@ -849,6 +849,52 @@ const places = [
         image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
       }
     ]
+  },
+  {
+    id: "elirock",
+    name: "Eli Rock",
+    subtitle: "Cliff Jumping Paradise in Boljoon, Cebu",
+    thumbnail: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=Eli+Rock+Boljoon+Cebu",
+    hashtags: ["#elirock", "#boljoon", "#cebu", "#cliffjumping", "#hiddenbeach", "#adventure"],
+    categories: ["cebu", "adventure", "beach", "cliff"],
+    description: "Eli Rock is a hidden gem in Boljoon, Southern Cebu, famous for its dramatic cliff formations and exhilarating cliff jumping spots. This secluded paradise offers crystal-clear waters, natural rock pools, and stunning coastal views. Adventure seekers come for the adrenaline-pumping cliff jumps ranging from beginner-friendly heights to expert-level drops. The journey to Eli Rock is an adventure itself, taking you through scenic coastal roads and local fishing villages. Perfect for those seeking an off-the-beaten-path experience away from the crowds.",
+    images: [
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/PTjUUnE4-Io",
+    accordions: {
+      howToGetThere: "From Cebu City South Bus Terminal, take a bus to Boljoon (approximately 3-4 hours). From Boljoon town, hire a habal-habal to Eli Rock. The last stretch involves a short hike down to the rock formations. Best to go during low tide for safer cliff jumping.",
+      accommodation: "Boljoon has limited lodging options. Most visitors do a day trip from Oslob or Moalboal. For overnight stays, check local homestays in Boljoon town or nearby Alcoy. Camping is possible near the area with proper preparation.",
+      placesToVisit: "Eli Rock cliff jumping spots, the natural rock pools and formations, nearby Boljoon Church (one of Cebu's oldest), the scenic coastal views, and combine with a visit to Oslob whale sharks or Sumilon Island."
+    },
+    restaurants: [
+      {
+        name: "Boljoon Coastal Eatery",
+        rating: 4.1,
+        reviews: 42,
+        priceRange: "₱80–200",
+        type: "Filipino Seafood",
+        locationCode: "Boljoon Town Proper",
+        review: "Fresh catch of the day and simple local dishes. Perfect after an adventure at Eli Rock.",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Auntie's Carinderia",
+        rating: 4.0,
+        reviews: 28,
+        priceRange: "₱50–150",
+        type: "Local Eatery",
+        locationCode: "Near Boljoon Church",
+        review: "Homestyle cooking at affordable prices. Great for fueling up before the adventure.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      }
+    ]
   }
 ];
 
