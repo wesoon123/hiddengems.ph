@@ -711,6 +711,144 @@ const places = [
         image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop"
       }
     ]
+  },
+  {
+    id: "elnido",
+    name: "El Nido, Palawan",
+    subtitle: "Island Paradise with Stunning Lagoons",
+    thumbnail: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=El+Nido+Palawan",
+    hashtags: ["#elnido", "#palawan", "#biglagoon", "#nacpanbeach", "#islandhopping", "#paradise"],
+    categories: ["palawan", "island", "beach", "diving", "lagoon"],
+    description: "El Nido is the crown jewel of Palawan, famous for its dramatic limestone cliffs, crystal-clear lagoons, and pristine white sand beaches. This tropical paradise offers world-class island hopping tours featuring the iconic Big and Small Lagoons, Secret Lagoon, Seven Commandos Beach, and the stunning Nacpan Beach. Whether you're kayaking through emerald waters, snorkeling in vibrant coral gardens, or simply relaxing on powdery sand, El Nido delivers an unforgettable Philippine island experience.",
+    images: [
+      "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1537956965359-7573183d1f57?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/PGKmexNTHNE",
+    accordions: {
+      howToGetThere: "Fly to Puerto Princesa Airport then take a 5-6 hour van ride to El Nido, or fly directly to El Nido's Lio Airport. From Manila, several airlines offer direct flights to El Nido. Ferries are also available from Coron.",
+      accommodation: "El Nido offers accommodations for all budgets - from beachfront luxury resorts like Pangulasian Island and El Nido Resorts to budget-friendly hostels in town. Book in advance during peak season (December-May).",
+      placesToVisit: "Big Lagoon, Small Lagoon, Secret Lagoon, Nacpan Beach (twin beach), Seven Commandos Beach, Shimizu Island for snorkeling, Snake Island sandbar, Hidden Beach, and Matinloc Shrine."
+    },
+    restaurants: [
+      {
+        name: "Trattoria Altrove",
+        rating: 4.8,
+        reviews: 892,
+        priceRange: "₱400–800",
+        type: "Italian Cuisine",
+        locationCode: "El Nido Town",
+        review: "Best Italian pizza and pasta in Palawan! Wood-fired oven and authentic recipes.",
+        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Happiness Beach Bar",
+        rating: 4.6,
+        reviews: 654,
+        priceRange: "₱250–500",
+        type: "Beach Bar & Grill",
+        locationCode: "Corong-Corong Beach",
+        review: "Sunset cocktails and fresh grilled seafood right on the beach. Perfect vibes!",
+        image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "coron",
+    name: "Coron, Palawan",
+    subtitle: "Shipwreck Diving Capital of the Philippines",
+    thumbnail: "https://images.unsplash.com/photo-1573790387438-4da905039392?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=Coron+Palawan",
+    hashtags: ["#coron", "#palawan", "#kayanganlake", "#twinlagoon", "#shipwreck", "#diving"],
+    categories: ["palawan", "island", "diving", "lagoon", "adventure"],
+    description: "Coron is a world-renowned destination famous for WWII Japanese shipwreck diving and stunning natural lagoons. Kayangan Lake, often called the cleanest lake in the Philippines, features crystal-clear waters surrounded by dramatic limestone formations. Twin Lagoon amazes visitors with its unique warm and cool water layers, while Barracuda Lake offers an otherworldly thermocline experience. Whether you're diving shipwrecks, snorkeling coral gardens, or climbing Mount Tapyas for panoramic sunset views, Coron delivers adventure at every turn.",
+    images: [
+      "https://images.unsplash.com/photo-1573790387438-4da905039392?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/3ueVTf-CPTU",
+    accordions: {
+      howToGetThere: "Fly to Francisco B. Reyes Airport (Busuanga Airport) from Manila or Cebu. The airport is about 30-45 minutes from Coron town. Ferries also connect Coron to El Nido and Manila.",
+      accommodation: "Coron offers diverse lodging from budget hostels to luxury overwater bungalows at Two Seasons Coron. The town proper has many affordable options, while nearby islands offer exclusive resort experiences.",
+      placesToVisit: "Kayangan Lake, Twin Lagoon, Barracuda Lake, Mt. Tapyas viewpoint (700+ steps), Siete Pecados Marine Park, Malcapuya Island, WWII shipwreck dive sites, Maquinit Hot Springs, and CYC Beach."
+    },
+    restaurants: [
+      {
+        name: "Lolo Nonoy's Food Station",
+        rating: 4.7,
+        reviews: 1243,
+        priceRange: "₱200–400",
+        type: "Filipino Seafood",
+        locationCode: "Coron Town",
+        review: "Famous for fresh seafood and local dishes. Their grilled seafood platter is a must!",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Santino's Grill",
+        rating: 4.5,
+        reviews: 876,
+        priceRange: "₱300–600",
+        type: "Steakhouse & Grill",
+        locationCode: "Coron Town Center",
+        review: "Best steaks in Coron with great cocktails. Rooftop seating with mountain views.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "puertoprincesa",
+    name: "Puerto Princesa",
+    subtitle: "Home of the Underground River",
+    thumbnail: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=Puerto+Princesa+Palawan",
+    hashtags: ["#puertoprincesa", "#undergroundriver", "#palawan", "#unesco", "#hondabay"],
+    categories: ["palawan", "adventure", "nature", "unesco"],
+    description: "Puerto Princesa is the capital of Palawan and home to the famous Puerto Princesa Subterranean River National Park - a UNESCO World Heritage Site and one of the New7Wonders of Nature. This 8.2-kilometer underground river features stunning limestone cave formations as you paddle through darkness surrounded by stalactites and stalagmites. Beyond the Underground River, explore Honda Bay's islands, Ugong Rock adventures, Iwahig Firefly Watching, and the city's clean, green environment that earned its title as the 'City in a Forest.'",
+    images: [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/R0xvXKxNJ0w",
+    accordions: {
+      howToGetThere: "Fly directly to Puerto Princesa International Airport from Manila, Cebu, or other major cities. The airport is just 10 minutes from the city center. Many domestic airlines offer daily flights.",
+      accommodation: "Puerto Princesa has excellent hotels and resorts ranging from budget to luxury. Sheridan Beach Resort and Astoria Palawan offer beachfront luxury, while the city center has many affordable options.",
+      placesToVisit: "Puerto Princesa Underground River (book in advance!), Honda Bay island hopping, Ugong Rock zipline and spelunking, Iwahig Firefly Watching, Baker's Hill, Palawan Wildlife Rescue Center, and Immaculate Conception Cathedral."
+    },
+    restaurants: [
+      {
+        name: "Kinabuch Grill & Bar",
+        rating: 4.6,
+        reviews: 1567,
+        priceRange: "₱250–500",
+        type: "Filipino Grill",
+        locationCode: "Rizal Avenue",
+        review: "Famous for exotic dishes and grilled crocodile! A unique Palawan dining experience.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Ka Lui Restaurant",
+        rating: 4.8,
+        reviews: 2134,
+        priceRange: "₱400–700",
+        type: "Filipino Seafood",
+        locationCode: "Rizal Avenue",
+        review: "Iconic Palawan restaurant with fresh seafood set meals. Reserve ahead - always full!",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      }
+    ]
   }
 ];
 
