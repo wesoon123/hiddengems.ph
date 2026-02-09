@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Gems PH | Home</title>
+    <title>Hidden Gems PH | Discover Paradise in the Philippines</title>
+    <meta name="description" content="Explore hidden destinations, pristine beaches, and unique experiences in the Philippines. Your ultimate travel guide to off-the-beaten-path adventures.">
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
     <link href="./css/index.css" rel="stylesheet" type="text/css">
     <script type="module" src="./js/index.js" defer></script>
-    <!-- <script type="module" src="./js/postsStore.js"></script>
-    <script type="module" src="./js/alpine.card.js"></script> -->
 </head>
 
-<body class="font-roboto bg-gray-100 min-h-screen">
+<body class="font-inter bg-dark min-h-screen text-white">
     <!-- Welcome Modal -->
     <div x-data="{ 
         showWelcome: !localStorage.getItem('welcomeSeen'),
@@ -29,7 +28,7 @@
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
             @keydown.escape.window="closeWelcome()"
-            class="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-[100]">
+            class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-[100]">
             
             <!-- Modal Content -->
             <div x-show="showWelcome"
@@ -39,12 +38,12 @@
                 x-transition:leave="transition ease-in duration-200"
                 x-transition:leave-start="opacity-100 transform scale-100"
                 x-transition:leave-end="opacity-0 transform scale-90"
-                class="relative max-w-lg w-full rounded-2xl overflow-hidden shadow-2xl">
+                class="relative max-w-lg w-full rounded-3xl overflow-hidden shadow-2xl glass">
                 
                 <!-- Close Button -->
                 <button @click="closeWelcome()" 
-                    class="absolute top-3 right-3 z-10 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all hover:scale-110">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-800">
+                    class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center backdrop-blur-md cursor-pointer transition-all hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
@@ -56,117 +55,254 @@
                     @click="closeWelcome()">
                 
                 <!-- Explore Button -->
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
                     <button @click="closeWelcome()" 
-                        class="w-full py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold rounded-full text-lg transition-all hover:scale-105 cursor-pointer shadow-lg">
-                        🌴 Start Exploring!
+                        class="w-full py-4 btn-primary text-dark font-bold rounded-full text-lg cursor-pointer shadow-xl">
+                        🌴 Start Your Adventure!
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div>
-        <header class="bg-white shadow">
-            <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-                <img class="w-15 h-15" src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763359276/logofficial_fcgaah.jpg" alt="logo">
-                <input type="search" class="border border-gray-300 rounded-lg px-4 py-2 w-1/3 hover:scale-105 transition-transform duration-100 ease-in-out cursor-pointer" placeholder="Search destinations...">
-                <nav>
-                    <ul class="flex space-x-4">
-                        <li class="hover:scale-125 transition-transform duration-100 ease-in-out cursor-pointer"><a href="#" class="text-gray-600">Home</a></li>
-                        <li class="hover:scale-125 transition-transform duration-100 ease-in-out cursor-pointer"><a href="#" class="text-gray-600 hover:text-gray-800">About</a></li>
-                        <li class="hover:scale-125 transition-transform duration-100 ease-in-out cursor-pointer"><a href="#" class="text-gray-600 hover:text-gray-800">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <main class="container mx-auto px-4 py-12">
-            <section x-data="placesApp()" x-init="init()">
-                <!-- Filter Section -->
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-semibold text-gray-800 mb-4">Discover Hidden Gems in the Philippines</h2>
-                    <p class="text-gray-600 mb-6">Explore off-the-beaten-path destinations, local culture, and unique experiences.</p>
-                    
-                    <!-- Filter Buttons -->
-                    <ul class="flex flex-wrap justify-center gap-3 text-gray-500">
-                        <!-- All Button -->
-                        <li @click="filterByCategory('all')"
-                            :class="activeFilter === 'all' ? 'bg-primary text-white ring-2 ring-offset-2 ring-primary' : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'"
-                            class="px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer">
-                            All
-                        </li>
-                        <!-- Cebu -->
-                        <li @click="filterByCategory('cebu')"
-                            :class="activeFilter === 'cebu' ? 'bg-primary text-white ring-2 ring-offset-2 ring-primary' : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'"
-                            class="px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer">
-                            Cebu
-                        </li>
-                        <!-- Island -->
-                        <li @click="filterByCategory('island')"
-                            :class="activeFilter === 'island' ? 'bg-primary text-white ring-2 ring-offset-2 ring-primary' : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'"
-                            class="px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer">
-                            Island
-                        </li>
-                        <!-- Beach -->
-                        <li @click="filterByCategory('beach')"
-                            :class="activeFilter === 'beach' ? 'bg-primary text-white ring-2 ring-offset-2 ring-primary' : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'"
-                            class="px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer">
-                            Beach
-                        </li>
-                        <!-- Diving -->
-                        <li @click="filterByCategory('diving')"
-                            :class="activeFilter === 'diving' ? 'bg-primary text-white ring-2 ring-offset-2 ring-primary' : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'"
-                            class="px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer">
-                            Diving
-                        </li>
-                        <!-- Waterfall -->
-                        <li @click="filterByCategory('waterfall')"
-                            :class="activeFilter === 'waterfall' ? 'bg-primary text-white ring-2 ring-offset-2 ring-primary' : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'"
-                            class="px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer">
-                            Waterfall
-                        </li>
-                        <!-- Adventure -->
-                        <li @click="filterByCategory('adventure')"
-                            :class="activeFilter === 'adventure' ? 'bg-primary text-white ring-2 ring-offset-2 ring-primary' : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'"
-                            class="px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer">
-                            Adventure
-                        </li>
-                        <!-- Surfing -->
-                        <li @click="filterByCategory('surfing')"
-                            :class="activeFilter === 'surfing' ? 'bg-primary text-white ring-2 ring-offset-2 ring-primary' : 'bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'"
-                            class="px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer">
-                            Surfing
-                        </li>
-                    </ul>
-                    
-                    <!-- Results Count -->
-                    <p class="text-gray-500 mt-4 text-sm" x-text="`Showing ${places.length} destination${places.length !== 1 ? 's' : ''}`"></p>
+    <!-- Main Container -->
+    <div class="min-h-screen">
+        <!-- Sticky Header -->
+        <header x-data="{ scrolled: false, mobileMenuOpen: false }" 
+            @scroll.window="scrolled = window.scrollY > 50"
+            :class="scrolled ? 'header-scrolled py-3' : 'py-5'"
+            class="header-sticky transition-all duration-300">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img class="w-12 h-12 rounded-xl" src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763359276/logofficial_fcgaah.jpg" alt="Hidden Gems PH Logo">
+                    <span class="text-2xl font-bold gradient-text hidden sm:block">HiddenGemsPH</span>
                 </div>
                 
-                <div class="columns-1 gap-3 space-y-3 pb-28 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
-                    <!-- Place Cards -->
+                <!-- Search Bar (Desktop) -->
+                <div class="flex-1 max-w-md mx-4 hidden lg:block">
+                    <div class="relative">
+                        <input type="search" 
+                            class="w-full bg-white/10 border border-white/20 rounded-full px-5 py-3 pl-12 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
+                            placeholder="Search destinations...">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white/60 absolute left-4 top-1/2 -translate-y-1/2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="#" class="text-white/80 hover:text-primary transition-colors font-medium">Home</a>
+                    <a href="#destinations" class="text-white/80 hover:text-primary transition-colors font-medium">Explore</a>
+                    <a href="#about" class="text-white/80 hover:text-primary transition-colors font-medium">About</a>
+                    <button class="btn-primary px-6 py-2 rounded-full font-semibold text-dark">
+                        Contact
+                    </button>
+                </nav>
+                
+                <!-- Mobile Burger Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" 
+                    class="md:hidden w-12 h-12 glass rounded-xl flex items-center justify-center cursor-pointer z-50"
+                    :class="mobileMenuOpen ? 'bg-primary' : ''">
+                    <!-- Burger Icon -->
+                    <div class="relative w-6 h-5 flex flex-col justify-between">
+                        <span class="w-full h-0.5 bg-white rounded transition-all duration-300 origin-center"
+                            :class="mobileMenuOpen ? 'rotate-45 translate-y-2' : ''"></span>
+                        <span class="w-full h-0.5 bg-white rounded transition-all duration-300"
+                            :class="mobileMenuOpen ? 'opacity-0' : ''"></span>
+                        <span class="w-full h-0.5 bg-white rounded transition-all duration-300 origin-center"
+                            :class="mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''"></span>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Dropdown -->
+            <div x-show="mobileMenuOpen"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 -translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 -translate-y-4"
+                @click.away="mobileMenuOpen = false"
+                class="md:hidden absolute top-full left-0 right-0 glass-dark border-t border-white/10 shadow-2xl"
+                x-cloak>
+                <div class="container mx-auto px-4 py-6">
+                    <!-- Mobile Search -->
+                    <div class="relative mb-6">
+                        <input type="search" 
+                            class="w-full bg-white/10 border border-white/20 rounded-full px-5 py-3 pl-12 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
+                            placeholder="Search destinations...">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-white/60 absolute left-4 top-1/2 -translate-y-1/2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </div>
+                    
+                    <!-- Mobile Nav Links -->
+                    <nav class="flex flex-col gap-4">
+                        <a href="#" @click="mobileMenuOpen = false" class="text-lg font-medium text-white/80 hover:text-primary transition-colors py-2 border-b border-white/10">
+                            🏠 Home
+                        </a>
+                        <a href="#destinations" @click="mobileMenuOpen = false" class="text-lg font-medium text-white/80 hover:text-primary transition-colors py-2 border-b border-white/10">
+                            🗺️ Explore Destinations
+                        </a>
+                        <a href="#about" @click="mobileMenuOpen = false" class="text-lg font-medium text-white/80 hover:text-primary transition-colors py-2 border-b border-white/10">
+                            ℹ️ About Us
+                        </a>
+                        <button @click="mobileMenuOpen = false" class="btn-primary w-full py-4 rounded-full font-bold text-dark text-lg mt-2">
+                            📧 Contact Us
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center justify-center hero-gradient overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full blur-[100px]"></div>
+                <div class="absolute bottom-20 right-20 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
+                <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-accent rounded-full blur-[80px]"></div>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="container mx-auto px-4 text-center relative z-10 pt-20">
+                <p class="text-primary font-semibold mb-4 tracking-widest uppercase text-sm fade-up">Welcome to Paradise</p>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight fade-up">
+                    Discover <span class="gradient-text">Hidden Gems</span><br>
+                    in the Philippines
+                </h1>
+                <p class="text-xl text-white/70 mb-8 max-w-2xl mx-auto fade-up">
+                    Explore off-the-beaten-path destinations, pristine beaches, majestic waterfalls, and unique adventures waiting to be discovered.
+                </p>
+                
+                <!-- Stats -->
+                <div class="flex justify-center gap-12 mb-12 fade-up">
+                    <div class="text-center">
+                        <p class="text-4xl font-bold gradient-text">14+</p>
+                        <p class="text-white/60 text-sm">Destinations</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-bold gradient-text">50+</p>
+                        <p class="text-white/60 text-sm">Restaurants</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-bold gradient-text">100%</p>
+                        <p class="text-white/60 text-sm">Adventure</p>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex justify-center gap-4 fade-up">
+                    <a href="#destinations" class="btn-primary px-8 py-4 rounded-full font-bold text-lg text-dark inline-flex items-center gap-2">
+                        <span>Explore Now</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </a>
+                    <a href="#about" class="glass px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all inline-flex items-center gap-2">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main id="destinations" class="container mx-auto px-4 py-20">
+            <section x-data="placesApp()" x-init="init()">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <p class="text-primary font-semibold mb-2 tracking-widest uppercase text-sm">Destinations</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                        Find Your <span class="gradient-text">Perfect Escape</span>
+                    </h2>
+                    <p class="text-white/60 max-w-xl mx-auto">
+                        From pristine beaches to majestic mountains, discover the best hidden gems across the Philippines.
+                    </p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button @click="filterByCategory('all')"
+                        :class="activeFilter === 'all' ? 'filter-active' : 'glass hover:bg-white/20'"
+                        class="px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+                        All
+                    </button>
+                    <button @click="filterByCategory('cebu')"
+                        :class="activeFilter === 'cebu' ? 'filter-active' : 'glass hover:bg-white/20'"
+                        class="px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+                        🏝️ Cebu
+                    </button>
+                    <button @click="filterByCategory('island')"
+                        :class="activeFilter === 'island' ? 'filter-active' : 'glass hover:bg-white/20'"
+                        class="px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+                        🌴 Island
+                    </button>
+                    <button @click="filterByCategory('beach')"
+                        :class="activeFilter === 'beach' ? 'filter-active' : 'glass hover:bg-white/20'"
+                        class="px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+                        🏖️ Beach
+                    </button>
+                    <button @click="filterByCategory('diving')"
+                        :class="activeFilter === 'diving' ? 'filter-active' : 'glass hover:bg-white/20'"
+                        class="px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+                        🤿 Diving
+                    </button>
+                    <button @click="filterByCategory('waterfall')"
+                        :class="activeFilter === 'waterfall' ? 'filter-active' : 'glass hover:bg-white/20'"
+                        class="px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+                        💧 Waterfall
+                    </button>
+                    <button @click="filterByCategory('adventure')"
+                        :class="activeFilter === 'adventure' ? 'filter-active' : 'glass hover:bg-white/20'"
+                        class="px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+                        ⛰️ Adventure
+                    </button>
+                    <button @click="filterByCategory('surfing')"
+                        :class="activeFilter === 'surfing' ? 'filter-active' : 'glass hover:bg-white/20'"
+                        class="px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+                        🏄 Surfing
+                    </button>
+                </div>
+                
+                <!-- Results Count -->
+                <p class="text-center text-white/50 mb-8" x-text="`Showing ${places.length} destination${places.length !== 1 ? 's' : ''}`"></p>
+                
+                <!-- Place Cards Grid -->
+                <div class="columns-1 gap-6 space-y-6 pb-20 sm:columns-2 lg:columns-3 xl:columns-4">
                     <template x-for="place in places" :key="place.id">
-                        <div x-data="{ isOpen: false }"
-                             x-effect="document.body.classList.toggle('noscroll', isOpen)">
+                        <div class="break-inside-avoid">
                             <!-- Card -->
                             <div @click="openModal(place.id)"
-                                class="relative rounded-lg shadow-md hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer">
+                                class="relative rounded-2xl overflow-hidden cursor-pointer card-hover group">
+                                <!-- Image -->
                                 <img :src="place.thumbnail" 
-                                    class="rounded-lg w-full" 
-                                    :alt="place.name + ' Destination'">
-                                <div class="absolute inset-0 flex flex-col justify-between p-4">
-                                    <div class="w-8 h-8 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" 
-                                            fill="none" viewBox="0 0 24 24" 
-                                            stroke-width="2" stroke="currentColor" 
-                                            class="w-4 h-4 text-black">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                                        </svg>
+                                    class="w-full object-cover" 
+                                    :alt="place.name + ' - Hidden Gem Philippines'">
+                                
+                                <!-- Gradient Overlay -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-80"></div>
+                                
+                                <!-- Content -->
+                                <div class="absolute inset-0 flex flex-col justify-between p-5">
+                                    <!-- Top Badge -->
+                                    <div class="flex justify-between items-start">
+                                        <span class="glass px-3 py-1.5 rounded-full text-xs font-medium" x-text="place.categories?.[0] || 'explore'"></span>
+                                        <button class="w-10 h-10 glass rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-dark transition-all">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                            </svg>
+                                        </button>
                                     </div>
+                                    
+                                    <!-- Bottom Content -->
                                     <div>
-                                        <h2 class="text-black text-[clamp(1rem,1.5vw,1.3rem)] font-semibold drop-shadow-lg" x-text="place.name"></h2>
-                                        <button class="mt-3 bg-black/80 text-white px-4 py-1 rounded-full text-[clamp(0.75rem,.75vw,1rem)]">
-                                            Explore Now
+                                        <h3 class="text-xl font-bold mb-1" x-text="place.name"></h3>
+                                        <p class="text-white/70 text-sm mb-3" x-text="place.subtitle"></p>
+                                        <button class="btn-primary px-5 py-2 rounded-full text-sm font-semibold text-dark group-hover:shadow-lg transition-all">
+                                            Explore →
                                         </button>
                                     </div>
                                 </div>
@@ -185,7 +321,7 @@
                     x-transition:leave-end="opacity-0"
                     @keydown.escape.window="closeModal()"
                     @click.self="closeModal()" 
-                    class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+                    class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50"
                     x-cloak>
                     
                     <!-- Modal Box -->
@@ -194,140 +330,142 @@
                         x-transition:enter-start="opacity-0 transform scale-95"
                         x-transition:enter-end="opacity-100 transform scale-100"
                         x-data="{accordionOpen: null}"
-                        class="bg-white w-full max-w-4xl p-6 rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto">
+                        class="glass-dark w-full max-w-4xl p-8 rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
                         
                         <template x-if="selectedPlace">
                             <div>
                                 <!-- Header -->
-                                <h2 class="text-1xl font-semibold mb-3 text-gray-800 md:text-3xl" x-text="selectedPlace.name"></h2>
-                                <p class="text-sm font-semibold text-gray-800 mb-3 md:text-md flex items-center">
-                                    <span x-text="selectedPlace.subtitle"></span>
-                                    <a :href="selectedPlace.locationLink" target="_blank">
-                                        <img src="./images-icon/icons8-location-50.png" alt="Location" 
-                                            class="w-6 h-6 ml-3 hover:scale-125 transition-transform duration-100 ease-in-out cursor-pointer"/>
-                                    </a>
-                                </p>
-
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <span class="text-primary font-semibold text-sm tracking-wider uppercase" x-text="selectedPlace.categories?.[0] || 'destination'"></span>
+                                        <h2 class="text-3xl md:text-4xl font-bold mt-1" x-text="selectedPlace.name"></h2>
+                                        <p class="text-white/60 mt-1" x-text="selectedPlace.subtitle"></p>
+                                    </div>
+                                    <button @click="closeModal()" class="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/20 transition-all cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                
                                 <!-- Image Carousel -->
-                                <div class="splide mb-4" :id="'splide-' + selectedPlace.id">
+                                <div :id="'splide-' + selectedPlace.id" class="splide mb-8 rounded-2xl overflow-hidden">
                                     <div class="splide__track">
                                         <ul class="splide__list">
-                                            <template x-for="(img, index) in selectedPlace.images" :key="index">
+                                            <template x-for="(image, index) in selectedPlace.images" :key="index">
                                                 <li class="splide__slide">
-                                                    <img :src="img" :alt="selectedPlace.name + ' Image'" 
-                                                        class="w-full h-80 object-cover rounded-lg">
+                                                    <img :src="image" class="w-full h-[300px] md:h-[400px] object-cover" :alt="selectedPlace.name + ' Image ' + (index + 1)">
                                                 </li>
                                             </template>
                                         </ul>
                                     </div>
                                 </div>
-
+                                
                                 <!-- Hashtags -->
-                                <ul class="flex flex-wrap justify-center gap-2 text-gray-500 mb-4">
+                                <div class="flex flex-wrap gap-2 mb-6">
                                     <template x-for="tag in selectedPlace.hashtags" :key="tag">
-                                        <li class="border p-1 rounded-lg text-gray-800 text-sm" x-text="tag"></li>
+                                        <span class="glass px-3 py-1 rounded-full text-sm text-primary" x-text="tag"></span>
                                     </template>
-                                </ul>
-
+                                </div>
+                                
                                 <!-- Description -->
-                                <p class="text-gray-600 mb-6 leading-relaxed" x-text="selectedPlace.description"></p>
-
+                                <p class="text-white/80 leading-relaxed mb-8" x-text="selectedPlace.description"></p>
+                                
                                 <!-- Accordions -->
-                                <div class="space-y-4 mb-6">
-                                    <!-- How to get there -->
-                                    <div class="px-5 py-4 text-gray-700 leading-relaxed flex justify-between items-center
-                                                bg-gray-400/20 hover:bg-gray-400/30 cursor-pointer rounded-2xl shadow-md"
-                                        @click="accordionOpen = accordionOpen === 1 ? null : 1">
-                                        <span>How to get there</span>
-                                        <img class="w-5 h-5 transition-transform" 
-                                            :class="accordionOpen === 1 ? 'rotate-180' : ''"
-                                            src="./images-icon/icons8-arrow-down-50.png"/>
+                                <div class="space-y-3 mb-8">
+                                    <!-- How to Get There -->
+                                    <div class="glass rounded-xl overflow-hidden">
+                                        <button @click="accordionOpen = accordionOpen === 'howTo' ? null : 'howTo'" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer">
+                                            <span class="font-semibold flex items-center gap-2">
+                                                <span class="text-xl">🚗</span> How to Get There
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 transition-transform" :class="accordionOpen === 'howTo' ? 'rotate-180' : ''">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </button>
+                                        <div x-show="accordionOpen === 'howTo'" x-collapse class="px-6 pb-4">
+                                            <p class="text-white/70" x-text="selectedPlace.accordions?.howToGetThere"></p>
+                                        </div>
                                     </div>
-                                    <div x-show="accordionOpen === 1" x-collapse.duration.500ms x-transition
-                                        class="px-5 py-4 bg-gray-100/50 rounded-2xl">
-                                        <p class="text-gray-600 leading-relaxed" x-text="selectedPlace.accordions.howToGetThere"></p>
-                                    </div>
-
+                                    
                                     <!-- Accommodation -->
-                                    <div class="px-5 py-4 text-gray-700 leading-relaxed flex justify-between items-center
-                                                bg-gray-400/20 hover:bg-gray-400/30 cursor-pointer rounded-2xl shadow-md"
-                                        @click="accordionOpen = accordionOpen === 2 ? null : 2">
-                                        <span>Accommodation</span>
-                                        <img class="w-5 h-5 transition-transform" 
-                                            :class="accordionOpen === 2 ? 'rotate-180' : ''"
-                                            src="./images-icon/icons8-arrow-down-50.png"/>
+                                    <div class="glass rounded-xl overflow-hidden">
+                                        <button @click="accordionOpen = accordionOpen === 'accom' ? null : 'accom'" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer">
+                                            <span class="font-semibold flex items-center gap-2">
+                                                <span class="text-xl">🏨</span> Where to Stay
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 transition-transform" :class="accordionOpen === 'accom' ? 'rotate-180' : ''">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </button>
+                                        <div x-show="accordionOpen === 'accom'" x-collapse class="px-6 pb-4">
+                                            <p class="text-white/70" x-text="selectedPlace.accordions?.accommodation"></p>
+                                        </div>
                                     </div>
-                                    <div x-show="accordionOpen === 2" x-collapse.duration.500ms x-transition
-                                        class="px-5 py-4 bg-gray-100/50 rounded-2xl">
-                                        <p class="text-gray-600 leading-relaxed" x-text="selectedPlace.accordions.accommodation"></p>
-                                    </div>
-
+                                    
                                     <!-- Places to Visit -->
-                                    <div class="px-5 py-4 text-gray-700 leading-relaxed flex justify-between items-center
-                                                bg-gray-400/20 hover:bg-gray-400/30 cursor-pointer rounded-2xl shadow-md"
-                                        @click="accordionOpen = accordionOpen === 3 ? null : 3">
-                                        <span>Places to Visit</span>
-                                        <img class="w-5 h-5 transition-transform" 
-                                            :class="accordionOpen === 3 ? 'rotate-180' : ''"
-                                            src="./images-icon/icons8-arrow-down-50.png"/>
+                                    <div class="glass rounded-xl overflow-hidden">
+                                        <button @click="accordionOpen = accordionOpen === 'places' ? null : 'places'" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer">
+                                            <span class="font-semibold flex items-center gap-2">
+                                                <span class="text-xl">📍</span> Must-Visit Spots
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 transition-transform" :class="accordionOpen === 'places' ? 'rotate-180' : ''">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </button>
+                                        <div x-show="accordionOpen === 'places'" x-collapse class="px-6 pb-4">
+                                            <p class="text-white/70" x-text="selectedPlace.accordions?.placesToVisit"></p>
+                                        </div>
                                     </div>
-                                    <div x-show="accordionOpen === 3" x-collapse.duration.500ms x-transition
-                                        class="px-5 py-4 bg-gray-100/50 rounded-2xl">
-                                        <p class="text-gray-600 leading-relaxed" x-text="selectedPlace.accordions.placesToVisit"></p>
+                                </div>
+                                
+                                <!-- YouTube Video -->
+                                <template x-if="selectedPlace.youtubeEmbed">
+                                    <div class="mb-8">
+                                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                                            <span class="text-2xl">🎬</span> Watch the Vlog
+                                        </h3>
+                                        <div class="aspect-video rounded-2xl overflow-hidden">
+                                            <iframe :src="selectedPlace.youtubeEmbed" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+                                        </div>
                                     </div>
-
-                                    <!-- Food / Restaurants -->
-                                    <div class="px-5 py-4 text-gray-700 leading-relaxed flex justify-between items-center
-                                                bg-gray-400/20 hover:bg-gray-400/30 cursor-pointer rounded-2xl shadow-md"
-                                        @click="accordionOpen = accordionOpen === 4 ? null : 4">
-                                        <span>Food</span>
-                                        <img class="w-5 h-5 transition-transform" 
-                                            :class="accordionOpen === 4 ? 'rotate-180' : ''"
-                                            src="./images-icon/icons8-arrow-down-50.png"/>
-                                    </div>
-                                    <div x-show="accordionOpen === 4" x-collapse.duration.500ms x-transition
-                                        class="px-5 py-4 bg-gray-100/50 rounded-2xl">
-                                        <div class="grid gap-4 md:grid-cols-2">
+                                </template>
+                                
+                                <!-- Restaurants -->
+                                <template x-if="selectedPlace.restaurants?.length">
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                                            <span class="text-2xl">🍽️</span> Where to Eat
+                                        </h3>
+                                        <div class="grid md:grid-cols-2 gap-4">
                                             <template x-for="resto in selectedPlace.restaurants" :key="resto.name">
-                                                <div class="bg-gray-200 p-3 rounded-xl shadow-md grid grid-cols-[1fr_auto] gap-3 items-start">
-                                                    <div class="space-y-1">
-                                                        <h3 class="text-lg font-semibold text-black" x-text="resto.name"></h3>
-                                                        <div class="flex items-center text-sm flex-wrap gap-2">
-                                                            <div class="flex text-yellow-400">★★★★☆</div>
-                                                            <span class="text-gray-600" x-text="resto.rating"></span>
-                                                            <span class="text-gray-500" x-text="'(' + resto.reviews + ')'"></span>
-                                                            <span class="text-gray-600" x-text="'· ' + resto.priceRange + ' · ' + resto.type"></span>
+                                                <div class="glass rounded-xl p-4 flex gap-4">
+                                                    <img :src="resto.image" class="w-20 h-20 rounded-xl object-cover" :alt="resto.name">
+                                                    <div class="flex-1">
+                                                        <h4 class="font-semibold" x-text="resto.name"></h4>
+                                                        <p class="text-primary text-sm" x-text="resto.type"></p>
+                                                        <div class="flex items-center gap-2 mt-1">
+                                                            <span class="text-yellow-400">⭐</span>
+                                                            <span class="text-sm" x-text="resto.rating"></span>
+                                                            <span class="text-white/50 text-sm" x-text="'(' + resto.reviews + ' reviews)'"></span>
                                                         </div>
-                                                        <p class="text-gray-500 text-xs" x-text="resto.locationCode"></p>
-                                                        <p class="text-gray-600 text-xs italic leading-snug" x-text="`&quot;${resto.review}&quot;`"></p>
+                                                        <p class="text-white/60 text-sm mt-1" x-text="resto.priceRange"></p>
                                                     </div>
-                                                    <img :src="resto.image" :alt="resto.name"
-                                                        class="w-20 h-20 object-cover rounded-lg"/>
                                                 </div>
                                             </template>
                                         </div>
                                     </div>
-                                </div>
-
-                                <!-- YouTube Video -->
-                                <div class="max-w-2xl mx-auto mb-6">
-                                    <div class="aspect-video">
-                                        <iframe class="w-full h-full rounded-xl shadow-2xl"
-                                            :src="selectedPlace.youtubeEmbed"
-                                            title="YouTube video player"
-                                            frameborder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen>
-                                        </iframe>
-                                    </div>
-                                </div>
-
-                                <!-- Close Button -->
-                                <div class="flex justify-end gap-3">
-                                    <button @click="closeModal()" 
-                                        class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-pointer transition-colors">
-                                        Close
-                                    </button>
+                                </template>
+                                
+                                <!-- Location Button -->
+                                <div class="mt-8 flex justify-center">
+                                    <a :href="selectedPlace.locationLink" target="_blank" class="btn-primary px-8 py-4 rounded-full font-bold text-dark inline-flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                        </svg>
+                                        View on Google Maps
+                                    </a>
                                 </div>
                             </div>
                         </template>
@@ -335,59 +473,114 @@
                 </div>
             </section>
         </main>
-        <footer class="bg-gray-900 text-gray-300 py-10 mt-10">
-            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
-                <!-- BRAND -->
-                <div>
-                    <h2 class="text-xl font-bold text-white mb-3">Travel Explorer</h2>
-                    <p class="text-sm leading-relaxed">
-                        Discover beautiful destinations, hidden gems, and unforgettable experiences.
-                        Your perfect journey starts here.
+        <!-- About Section -->
+        <section id="about" class="py-20 relative overflow-hidden">
+            <div class="absolute inset-0 hero-gradient opacity-50"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="text-primary font-semibold mb-2 tracking-widest uppercase text-sm">About Us</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Your Guide to <span class="gradient-text">Paradise</span>
+                    </h2>
+                    <p class="text-xl text-white/70 mb-8 leading-relaxed">
+                        Hidden Gems PH is your ultimate travel companion for discovering the most beautiful, 
+                        off-the-beaten-path destinations in the Philippines. From pristine beaches to majestic mountains, 
+                        we curate the best experiences for the adventurous traveler.
                     </p>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="glass p-8 rounded-2xl text-center">
+                            <span class="text-4xl mb-4 block">🗺️</span>
+                            <h3 class="text-xl font-bold mb-2">Curated Guides</h3>
+                            <p class="text-white/60">Handpicked destinations with detailed travel information</p>
+                        </div>
+                        <div class="glass p-8 rounded-2xl text-center">
+                            <span class="text-4xl mb-4 block">🎥</span>
+                            <h3 class="text-xl font-bold mb-2">Video Content</h3>
+                            <p class="text-white/60">Watch vlogs before you visit any destination</p>
+                        </div>
+                        <div class="glass p-8 rounded-2xl text-center">
+                            <span class="text-4xl mb-4 block">💡</span>
+                            <h3 class="text-xl font-bold mb-2">Local Tips</h3>
+                            <p class="text-white/60">Insider recommendations for the best experience</p>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- QUICK LINKS -->
-                <div>
-                    <h3 class="font-semibold text-white mb-3 text-sm tracking-wide">Quick Links</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white transition">Home</a></li>
-                        <li><a href="#" class="hover:text-white transition">Destinations</a></li>
-                        <li><a href="#" class="hover:text-white transition">Travel Tips</a></li>
-                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- DESTINATIONS -->
-                <div>
-                    <h3 class="font-semibold text-white mb-3 text-sm tracking-wide">Popular Spots</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white transition">Cebu</a></li>
-                        <li><a href="#" class="hover:text-white transition">Bohol</a></li>
-                        <li><a href="#" class="hover:text-white transition">Palawan</a></li>
-                        <li><a href="#" class="hover:text-white transition">Siargao</a></li>
-                    </ul>
-                </div>
-
-                <!-- CONTACT -->
-                <div>
-                    <h3 class="font-semibold text-white mb-3 text-sm tracking-wide">Contact Us</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li>Email: <span class="text-gray-400">info@hiddengemsph.com</span></li>
-                        <li>Phone: <span class="text-gray-400">+63 900 000 0000</span></li>
-                        <li>Location: <span class="text-gray-400">Cebu, Philippines</span></li>
-                    </ul>
-                </div>
-
             </div>
+        </section>
 
-            <!-- BOTTOM LINE -->
-            <div class="border-t border-gray-700 mt-10 pt-4 text-center text-xs text-gray-500">
-                © 2025 Hidden Gems PH — All rights reserved.
+        <!-- Footer -->
+        <footer class="bg-darker py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-4 gap-12 mb-12">
+                    <!-- Brand -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img class="w-12 h-12 rounded-xl" src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763359276/logofficial_fcgaah.jpg" alt="Logo">
+                            <span class="text-xl font-bold gradient-text">HiddenGemsPH</span>
+                        </div>
+                        <p class="text-white/60 mb-6">Discover the most beautiful hidden destinations across the Philippines.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-primary hover:text-dark transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-primary hover:text-dark transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-primary hover:text-dark transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-primary hover:text-dark transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-white/60 hover:text-primary transition-colors">Home</a></li>
+                            <li><a href="#destinations" class="text-white/60 hover:text-primary transition-colors">Destinations</a></li>
+                            <li><a href="#about" class="text-white/60 hover:text-primary transition-colors">About Us</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-primary transition-colors">Travel Tips</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Popular Spots -->
+                    <div>
+                        <h3 class="font-bold text-lg mb-4">Popular Spots</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-white/60 hover:text-primary transition-colors">Siargao Island</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-primary transition-colors">Bantayan Island</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-primary transition-colors">Kawasan Falls</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-primary transition-colors">Oslob</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+                        <ul class="space-y-3 text-white/60">
+                            <li class="flex items-center gap-2">
+                                <span>📧</span> info@hiddengemsph.com
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span>📱</span> +63 900 000 0000
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span>📍</span> Cebu City, Philippines
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Bottom -->
+                <div class="border-t border-white/10 pt-8 text-center">
+                    <p class="text-white/50">© 2025 Hidden Gems PH — Made with ❤️ in the Philippines</p>
+                </div>
             </div>
         </footer>
     </div>
-
 </body>
-
 </html>
