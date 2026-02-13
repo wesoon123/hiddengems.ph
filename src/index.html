@@ -509,6 +509,89 @@
             </div>
         </section>
 
+        <!-- Featured Video Section -->
+        <section id="featured-video" class="relative overflow-hidden" x-data="{ videoPlaying: false }">
+            <!-- Background Video/Image with Parallax -->
+            <div class="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center">
+                <!-- Video Background -->
+                <div class="absolute inset-0 z-0">
+                    <div x-show="!videoPlaying" class="absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=1920&h=1080&fit=crop" 
+                            alt="Philippines Aerial View" 
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div x-show="videoPlaying" x-cloak class="absolute inset-0">
+                        <iframe 
+                            x-ref="featuredVideo"
+                            src="" 
+                            class="w-full h-full object-cover"
+                            frameborder="0" 
+                            allow="autoplay; encrypted-media" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <!-- Dark Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/40 to-dark/80 z-10"></div>
+                </div>
+
+                <!-- Content Overlay -->
+                <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
+                    <!-- Top Label -->
+                    <p class="text-primary font-semibold mb-6 tracking-[0.3em] uppercase text-sm fade-up">
+                        🎬 Featured Video
+                    </p>
+                    
+                    <!-- Big Text -->
+                    <h2 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight fade-up" style="font-family: 'Inter', sans-serif; letter-spacing: -0.02em;">
+                        EXPLORE. <span class="gradient-text">DREAM.</span><br class="hidden sm:block"> DISCOVER.
+                    </h2>
+                    
+                    <!-- Subtitle -->
+                    <p class="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed fade-up">
+                        Journey through the breathtaking landscapes of the Philippines — from crystal-clear waters 
+                        to lush green mountains. Experience paradise like never before.
+                    </p>
+
+                    <!-- Play Button -->
+                    <div class="fade-up">
+                        <button @click="videoPlaying = true; $refs.featuredVideo.src = 'https://www.youtube.com/embed/NsCODJNTO68?autoplay=1&mute=0&controls=1&rel=0'"
+                            x-show="!videoPlaying"
+                            class="group relative inline-flex items-center gap-4 cursor-pointer">
+                            <!-- Animated Ring -->
+                            <div class="relative">
+                                <div class="absolute inset-0 rounded-full bg-primary/30 animate-ping"></div>
+                                <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary/20 backdrop-blur-md border-2 border-primary/50 flex items-center justify-center group-hover:bg-primary/40 group-hover:scale-110 transition-all duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8 md:w-10 md:h-10 text-primary ml-1">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="text-left hidden sm:block">
+                                <p class="text-white font-bold text-lg">Watch the Film</p>
+                                <p class="text-white/50 text-sm">Philippines Travel Cinematic</p>
+                            </div>
+                        </button>
+
+                        <!-- Close Video Button -->
+                        <button x-show="videoPlaying" 
+                            @click="videoPlaying = false; $refs.featuredVideo.src = ''"
+                            class="btn-primary px-8 py-4 rounded-full font-bold text-dark inline-flex items-center gap-2 cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Close Video
+                        </button>
+                    </div>
+
+                    <!-- Scroll hint -->
+                    <div class="mt-16 fade-up" x-show="!videoPlaying">
+                        <p class="text-white/40 text-xs tracking-widest uppercase mb-3">Scroll to explore more</p>
+                        <div class="w-px h-12 bg-gradient-to-b from-primary/60 to-transparent mx-auto"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="bg-darker py-16">
             <div class="container mx-auto px-4">
