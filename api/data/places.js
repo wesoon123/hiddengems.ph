@@ -941,6 +941,52 @@ const places = [
         image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
       }
     ]
+  },
+  {
+    id: "skipsbeachresort",
+    name: "Skip's Beach Resort",
+    subtitle: "Cozy Beachfront Retreat in Daanbantayan, Cebu",
+    thumbnail: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=Skips+Beach+Resort+Daanbantayan+Cebu",
+    hashtags: ["#skipsbeachresort", "#daanbantayan", "#cebu", "#beachresort", "#northcebu", "#cozyresort"],
+    categories: ["cebu", "beach", "island"],
+    description: "Skip's Beach Resort is a charming family-owned beachfront resort nestled in Agujo, Daanbantayan — the northern tip of Cebu Island. With 12 cozy hotel rooms and a laid-back backpacker vibe, this resort offers the perfect escape from the city. Wake up to stunning ocean views, enjoy fresh Filipino meals at their seaside restaurant, and spend your days snorkeling, fishing, or simply swinging on their iconic wooden swing by the sea. Just a 3-hour drive from Cebu City, it's the gateway to Malapascua Island and the perfect basecamp for exploring northern Cebu's pristine coastline.",
+    images: [
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/Ja5Ux2r293g",
+    accordions: {
+      howToGetThere: "From Cebu City, take a bus from the North Bus Terminal heading to Daanbantayan (approximately 3 hours). Once at Daanbantayan Poblacion, take a tricycle to Skip's Beach Resort in Barangay Agujo. Follow the barangay road across the Cebu Technological University (CTU). You can also hire a private car for a more comfortable ride.",
+      accommodation: "Skip's Beach Resort offers 12 hotel rooms including standard air-conditioned rooms, twin bed rooms, family rooms, and group rooms. Rooms come with cable TV and hot/cold showers. Backpacker accommodations are also available for budget travelers. Open cottages can be rented for day use.",
+      placesToVisit: "Malapascua Island (famous for thresher shark diving), Carnaza Island, Daanbantayan Beach, Monad Shoal, Kalanggaman Island day trips, and the scenic northern Cebu coastline. The resort is perfectly positioned as a gateway to Cebu's northern island-hopping adventures."
+    },
+    restaurants: [
+      {
+        name: "Skip's Beach Restaurant",
+        rating: 4.4,
+        reviews: 95,
+        priceRange: "₱150–400",
+        type: "Filipino Seafood & International",
+        locationCode: "Skip's Beach Resort, Agujo",
+        review: "Ocean-view dining from morning to 10PM. Fresh seafood and hearty Filipino meals served on the terrace.",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Villa D' Claire Cafe & Restaurant",
+        rating: 4.2,
+        reviews: 68,
+        priceRange: "₱100–300",
+        type: "Cafe & Filipino",
+        locationCode: "Daanbantayan Poblacion",
+        review: "Cozy cafe with great coffee and Filipino comfort food. Perfect stop on the way to the beach.",
+        image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=200&h=200&fit=crop"
+      }
+    ]
   }
 ];
 
