@@ -987,8 +987,53 @@ const places = [
         image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=200&h=200&fit=crop"
       }
     ]
+  },
+  {
+    id: "olangoisland",
+    name: "Olango Island",
+    subtitle: "Bird Sanctuary & Marine Paradise",
+    thumbnail: "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/olango island/img01.jpg",
+    locationLink: "https://maps.google.com/?q=Olango+Island+Cebu",
+    hashtags: ["#olangoisland", "#birdsanctuary", "#cebu", "#wildlife", "#snorkeling", "#islandhopping"],
+    categories: ["cebu", "island", "beach", "diving"],
+    description: "Olango Island is a stunning ecological paradise just a short boat ride from Mactan Island, Cebu. Home to the Olango Island Wildlife Sanctuary — a Ramsar Wetland of International Importance and the Philippines' first — this island is a critical stopover for 97 species of migratory birds along the East Asian-Australasian Flyway. Beyond world-class birdwatching, Olango offers the pristine San Vicente Marine Sanctuary for snorkeling, peaceful cycling trails through charming fishing villages, and island hopping to nearby Caohagan, Nalusuan, and Gilutongan Islands. With its untouched natural beauty, warm local culture, and fresh seafood, Olango Island is the perfect day trip or overnight escape for nature lovers.",
+    images: [
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/olango island/img01.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/olango island/img02.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/olango island/img03.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/olango island/img04.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/olango island/img05.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/olango island/img06.jpg"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/n_7UKkQjN0Y",
+    accordions: {
+      howToGetThere: "From Mactan Island, head to Angasil Port (Hilton Port) or Punta Engaño Wharf in Lapu-Lapu City. Take a public bangka boat to Olango Island — the ride takes about 20-30 minutes and costs around ₱15-25 per person. Boats run regularly throughout the day. From Olango pier, hire a tricycle or rent a bicycle to explore the island. The wildlife sanctuary is about 15 minutes by tricycle from Santa Rosa pier.",
+      accommodation: "Olango Island has limited but charming accommodation options including homestays, small guesthouses, and eco-lodges. Pag Utlan Camp offers beachfront camping and cottage stays. For more hotel options, stay in Mactan or Lapu-Lapu City and do a day trip. Camping is popular for overnight adventures.",
+      placesToVisit: "Olango Island Wildlife Sanctuary for world-class birdwatching (best Sep-Nov & Feb-Apr), San Vicente Marine Sanctuary for snorkeling and coral reefs, Pag Utlan Camp for beach relaxation, Shalala Beach for swimming, island hopping to Caohagan, Nalusuan, and Gilutongan Islands, and cycling through scenic fishing villages."
+    },
+    restaurants: [
+      {
+        name: "Olango Seafood House",
+        rating: 4.3,
+        reviews: 78,
+        priceRange: "₱100–300",
+        type: "Filipino Seafood",
+        locationCode: "Olango Island Pier Area",
+        review: "Fresh catch of the day served with rice and local sides. Simple but delicious island dining.",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Mangrove Grill & Resto",
+        rating: 4.1,
+        reviews: 52,
+        priceRange: "₱80–250",
+        type: "Local Eatery",
+        locationCode: "Santa Rosa, Olango",
+        review: "Charming local eatery near the sanctuary. Great grilled fish and kinilaw at affordable prices.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      }
+    ]
   }
 ];
 
 module.exports = places;
- 
