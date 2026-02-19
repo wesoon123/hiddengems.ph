@@ -946,18 +946,18 @@ const places = [
     id: "skipsbeachresort",
     name: "Skip's Beach Resort",
     subtitle: "Cozy Beachfront Retreat in Daanbantayan, Cebu",
-    thumbnail: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=500&fit=crop",
+    thumbnail: "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/skips beach resort/maxresdefault.jpg",
     locationLink: "https://maps.google.com/?q=Skips+Beach+Resort+Daanbantayan+Cebu",
     hashtags: ["#skipsbeachresort", "#daanbantayan", "#cebu", "#beachresort", "#northcebu", "#cozyresort"],
     categories: ["cebu", "beach", "island"],
     description: "Skip's Beach Resort is a charming family-owned beachfront resort nestled in Agujo, Daanbantayan — the northern tip of Cebu Island. With 12 cozy hotel rooms and a laid-back backpacker vibe, this resort offers the perfect escape from the city. Wake up to stunning ocean views, enjoy fresh Filipino meals at their seaside restaurant, and spend your days snorkeling, fishing, or simply swinging on their iconic wooden swing by the sea. Just a 3-hour drive from Cebu City, it's the gateway to Malapascua Island and the perfect basecamp for exploring northern Cebu's pristine coastline.",
     images: [
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800&h=400&fit=crop"
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/skips beach resort/maxresdefault.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/skips beach resort/caption.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/skips beach resort/images (2).jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/skips beach resort/5s4dzRwnVbzGY5ssnCE4wXzkeAEXyVtgk1ApQTwHMTp6y5PvEo1yennB312WjEU5wPYYVCTWRRSZqeCuojWxCphXBKdrYYFARXCkT5WD92aCKGPYNvu3AcPvrxGuA66qk5KZvoBVzjMZTN7PLRtgbK8zFgpK8yGRBbu6Mpi.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/skips beach resort/2dk2RRM2dZ8gKjXsrozapsD83FxL3Xbyyi5LFttAhrXxr16mCe4arfLHwPHNU5kTmLJTzGB1ye9rD83R9THjpS4mYnEtqop6f6QKVUy9UC1q7xEXHVKJ4kPx4LeWWMuAfPoYJvTa3akxiALbfqZxRe2CLRbVbWydp5yTew3RWe.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/skips beach resort/5s4dzRwnVbzGY5ssnCE4wXzkeAEXyVtgk1ApQTwHMTp6y5PvEo1yennB312WjEU5wPYYVCTWTTJKrpfziva8k65y7xqdsUAFATWKG3DcgEixUnh4cNUK5r4MVWj3q7i3DcmpXR9vJyW5WBYU6r1zGWxLf5Ys6RiGFhrkj4A.jpg"
     ],
     youtubeEmbed: "https://www.youtube.com/embed/Ja5Ux2r293g",
     accordions: {
