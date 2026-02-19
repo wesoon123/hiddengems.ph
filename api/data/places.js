@@ -1033,6 +1033,52 @@ const places = [
         image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
       }
     ]
+  },
+  {
+    id: "cambaisfalls",
+    name: "Cambais Falls",
+    subtitle: "Hidden Multi-Level Waterfall in Alegria",
+    thumbnail: "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/cambais falls/img01.jpg",
+    locationLink: "https://maps.google.com/?q=Cambais+Falls+Alegria+Cebu",
+    hashtags: ["#cambaisfalls", "#alegria", "#cebu", "#waterfall", "#cliffjumping", "#hiddenparadise"],
+    categories: ["cebu", "waterfall", "adventure", "nature"],
+    description: "Cambais Falls is a breathtaking multi-level waterfall hidden in the lush hills of Alegria, Southern Cebu. Often considered a quieter and more serene alternative to the famous Kawasan Falls, Cambais captivates visitors with its milky turquoise pools, cascading waterfalls surrounded by dense tropical vegetation, and thrilling cliff jumping spots. The first level features a large natural pool perfect for swimming, while the second level rewards adventurous hikers with a more secluded waterfall and private pool. With its pristine natural beauty, eco-tourism vibe, and off-the-beaten-path charm, Cambais Falls is a must-visit hidden gem for nature lovers and adventure seekers exploring South Cebu.",
+    images: [
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/cambais falls/img01.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/cambais falls/img02.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/cambais falls/img03.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/cambais falls/img04.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/cambais falls/img05.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/cambais falls/img06.jpg"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/_LmS6gkSoPg",
+    accordions: {
+      howToGetThere: "From Cebu City South Bus Terminal, take a bus heading to Bato via Barili and get off at Alegria (approximately 3-4 hours, fare around ₱150-200). From Alegria town proper, hire a habal-habal (motorcycle taxi) to Cambais Falls — the ride takes about 15-20 minutes through scenic mountain roads. From Moalboal, you can rent a scooter (₱400/day) and drive to Alegria in about an hour. At the entrance, pay the ₱50 entrance fee and walk a 10-15 minute trail to reach the falls.",
+      accommodation: "Most visitors stay in Moalboal and do Cambais Falls as a day trip. Moalboal offers a wide range of accommodations from budget hostels to beachfront resorts. In Alegria, limited homestays and small guesthouses are available. For a more comfortable option, stay in Badian where resorts like Lambug Beach are nearby.",
+      placesToVisit: "The first level pool for swimming and cliff jumping, the second level waterfall via a short hike for a more secluded experience, nearby Kawasan Falls and canyoneering adventure in Badian, Moalboal's Pescador Island for snorkeling with sardine runs, and the scenic mountain roads of Alegria perfect for motorcycle touring."
+    },
+    restaurants: [
+      {
+        name: "Alegria Roadside Eatery",
+        rating: 4.2,
+        reviews: 67,
+        priceRange: "₱80–200",
+        type: "Filipino Cuisine",
+        locationCode: "Alegria Town Proper",
+        review: "Simple but delicious local dishes served fresh. Great for refueling after the waterfall adventure. Try the adobo and fresh lumpia.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Chili Bar Moalboal",
+        rating: 4.6,
+        reviews: 342,
+        priceRange: "₱200–450",
+        type: "International & Filipino",
+        locationCode: "Panagsama Beach, Moalboal",
+        review: "Vibrant bar & restaurant with great cocktails, wood-fired pizza, and Filipino favorites. Perfect sunset spot after a day at the falls.",
+        image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop"
+      }
+    ]
   }
 ];
 
