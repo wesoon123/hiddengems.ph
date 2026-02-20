@@ -1,66 +1,46 @@
 // Express.js API Server for HiddenGemsPH
 const express = require('express');
-const cors = require('cors');
-const places = require('./data/places');
+const { corsMiddleware, errorHandler } = require('./middleware');
+const placesRouter = require('./routes/places');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+app.use(corsMiddleware);
 app.use(express.json());
 
 // Routes
-
-// GET all places (supports both /places/full and /places?full=true)
-app.get('/api/places', (req, res) => {
-  // If full query param, return full details
-  if (req.query.full === 'true') {
-    return res.json(places);
-  }
-  
-  // If id query param, return single place
-  if (req.query.id) {
-    const place = places.find(p => p.id === req.query.id);
-    if (!place) {
-      return res.status(404).json({ error: 'Place not found' });
-    }
-    return res.json(place);
-  }
-  
-  // Return simplified list for cards
-  const simplifiedPlaces = places.map(place => ({
-    id: place.id,
-    name: place.name,
-    subtitle: place.subtitle,
-    thumbnail: place.thumbnail
-  }));
-  res.json(simplifiedPlaces);
-});
-
-// GET all places with full details (legacy path support)
-app.get('/api/places/full', (req, res) => {
-  res.json(places);
-});
-
-// GET single place by ID (legacy path support)
-app.get('/api/places/:id', (req, res) => {
-  const place = places.find(p => p.id === req.params.id);
-  
-  if (!place) {
-    return res.status(404).json({ error: 'Place not found' });
-  }
-  
-  res.json(place);
-});
+app.use('/api/places', placesRouter);
 
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// Error handling (must be registered last)
+app.use(errorHandler);
+
 // Start server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`🚀 HiddenGemsPH API running on http://localhost:${PORT}`);
   console.log(`📍 Places endpoint: http://localhost:${PORT}/api/places`);
 });
+
+// Graceful shutdown
+const shutdown = (signal) => {
+  console.log(`\n🛑 ${signal} received. Shutting down gracefully...`);
+  server.close(() => {
+    console.log('✅ Server closed.');
+    process.exit(0);
+  });
+
+  // Force close after 5 seconds if connections hang
+  setTimeout(() => {
+    console.error('⚠️ Forcing shutdown after timeout.');
+    process.exit(1);
+  }, 5000);
+};
+
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+process.on('SIGINT', () => shutdown('SIGINT'));

@@ -6,6 +6,18 @@
     {
       "source": "/api/places",
       "destination": "/api/places"
+    },
+    {
+      "source": "/api/places/:match*",
+      "destination": "/api/places?id=:match*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "s-maxage=60, stale-while-revalidate=300" }
+      ]
     }
   ]
 }
