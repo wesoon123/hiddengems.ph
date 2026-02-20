@@ -1,15 +1,15 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "installCommand": "npm ci",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/api/places",
-      "destination": "/api/places"
-    },
-    {
-      "source": "/api/places/:match*",
-      "destination": "/api/places?id=:match*"
+      "source": "/api/places/:path*",
+      "destination": "/api/places?id=:path*"
     }
   ],
   "headers": [
