@@ -6,13 +6,13 @@ description: Upload images to Supabase Storage and use URLs in places.js
 
 ### Step 1: Upload Images to Supabase Storage
 1. Go to [Supabase Dashboard](https://supabase.com/dashboard) → Your Project
-2. Navigate to **Storage** → `hiddengemsph` bucket
+2. Navigate to **Storage** → `hidden-places` bucket
 3. Upload destination photos (drag & drop or click upload)
 
 ### Step 2: Get Image URLs
 // turbo
 1. Click the uploaded image → **Get URL** or **Copy URL**
-2. The URL format is: `https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hiddengemsph/FILENAME`
+2. The URL format is: `https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/FILENAME`
 
 ### Step 3: Update places.js
 1. Open `api/data/places.js`

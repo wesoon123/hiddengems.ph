@@ -5,7 +5,7 @@ description: Complete skill set for managing the HiddenGemsPH travel destination
 
 # HiddenGemsPH Project Skills
 
-## 🏗️ Tech Stack
+##  Tech Stack
 - **Frontend:** HTML, Alpine.js, TailwindCSS v4, Splide.js (carousel)
 - **Build Tool:** Parcel
 - **Backend API:** Express.js (local dev on port 3001)
@@ -16,7 +16,7 @@ description: Complete skill set for managing the HiddenGemsPH travel destination
 
 ---
 
-## 📍 Skill 1: Adding a New Destination
+##  Skill 1: Adding a New Destination
 
 ### Steps:
 1. **Research** the destination (web search for location, activities, nearby restaurants)
@@ -24,15 +24,15 @@ description: Complete skill set for managing the HiddenGemsPH travel destination
 3. **Required fields:**
    ```javascript
    {
-     id: "uniqueid",           // lowercase, no spaces
+     id: "uniqueid",
      name: "Destination Name",
      subtitle: "Tagline with Location",
-     thumbnail: "image_url",   // 400x500 crop
+     thumbnail: "image_url",   
      locationLink: "google_maps_url",
      hashtags: ["#tag1", "#tag2"],
-     categories: ["cebu", "beach"],  // Used for filters
+     categories: ["cebu", "beach"],  
      description: "Detailed description...",
-     images: ["url1", "url2", "url3", "url4", "url5", "url6"],  // 800x400 crop
+     images: ["url1", "url2", "url3", "url4", "url5", "url6"],  
      youtubeEmbed: "https://www.youtube.com/embed/VIDEO_ID",
      accordions: {
        howToGetThere: "Travel directions...",
@@ -48,7 +48,7 @@ description: Complete skill set for managing the HiddenGemsPH travel destination
          type: "Filipino Seafood",
          locationCode: "Location",
          review: "Short review...",
-         image: "image_url"   // 200x200 crop
+         image: "image_url"  
        }
      ]
    }
@@ -65,7 +65,7 @@ description: Complete skill set for managing the HiddenGemsPH travel destination
 
 ---
 
-## 🔄 Skill 2: Syncing Data to Supabase
+##  Skill 2: Syncing Data to Supabase
 
 ### Command:
 ```bash
@@ -84,12 +84,12 @@ npm run sync
 
 ---
 
-## 🖼️ Skill 3: Managing Images
+##  Skill 3: Managing Images
 
 ### Option A: Supabase Storage (Preferred for real photos)
 - Upload photos to Supabase Storage dashboard
-- Use bucket: `hiddengemsph`
-- URL format: `https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hiddengemsph/FILENAME`
+- Use bucket: `hidden-places`
+- URL format: `https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/FOLDER/FILENAME`
 - Public bucket for easy image access
 
 ### Option B: Unsplash (Placeholders)
@@ -105,7 +105,7 @@ npm run sync
 
 ---
 
-## 🚀 Skill 4: Development & Deployment
+##  Skill 4: Development & Deployment
 
 ### Start Development:
 ```bash
@@ -135,7 +135,7 @@ git push
 
 ---
 
-## 🔍 Skill 5: Code Quality & Debugging
+##  Skill 5: Code Quality & Debugging
 
 ### Common Issues:
 | Issue | Fix |
@@ -165,7 +165,7 @@ HiddenGemsPH/
 
 ---
 
-## 📋 Skill 6: Content Workflow (End-to-End)
+##  Skill 6: Content Workflow (End-to-End)
 
 ### Adding a new destination:
 1. User provides: **destination name** + **YouTube link**

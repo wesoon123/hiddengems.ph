@@ -50,26 +50,26 @@ const places = [
   },
   {
     id: "catmon",
-    name: "Catmon",
-    subtitle: "Hot Springs & Waterfalls Paradise",
-    thumbnail: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=400&h=600&fit=crop",
-    locationLink: "https://maps.google.com/?q=Catmon+Cebu",
-    hashtags: ["#catmon", "#esoyhotspring", "#mtkapayas", "#cebu", "#waterfalls"],
-    categories: ["cebu", "waterfall", "adventure", "hotspring"],
-    description: "Catmon is a hidden gem in Northern Cebu known for its natural hot springs, majestic waterfalls, and the towering Mt. Kapayas. This municipality offers a perfect escape from city life with its cool mountain climate and therapeutic hot spring pools. The town celebrates the Budbod Kabog Festival every February, showcasing traditional delicacies and cultural performances that reflect the rich heritage of the Cebuano people.",
+    name: "Rañola Beach Resort",
+    subtitle: "Beachfront Paradise in Catmon, Cebu",
+    thumbnail: "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/catmon/thumbnail.jpg",
+    locationLink: "https://maps.google.com/?q=Ranola+Beach+Resort+Catmon+Cebu",
+    hashtags: ["#rañolabeachresort", "#catmon", "#cebu", "#cebunorth", "#beachresort", "#hiddengemsph"],
+    categories: ["cebu", "beach", "resort", "adventure"],
+    description: "Rañola Beach Resort is a stunning beachfront getaway nestled along the coast of Catmon in Northern Cebu. Known for its pristine shoreline, crystal-clear waters, and relaxing tropical atmosphere, the resort offers a perfect escape from the hustle and bustle of city life. Guests can enjoy swimming, snorkeling, beachside dining, and breathtaking sunset views. With its affordable rates and warm hospitality, Rañola Beach Resort has become a favorite destination for families, couples, and adventure seekers looking to explore the hidden beauty of Cebu's northern coast.",
     images: [
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1552083375-1447ce886485?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1509233725247-49e657c54213?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=400&fit=crop"
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/catmon/img01.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/catmon/img02.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/catmon/img03.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/catmon/img04.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/catmon/img05.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/catmon/img06.jpg"
     ],
-    youtubeEmbed: "https://www.youtube.com/embed/0bIRwBpBcZQ",
+    youtubeEmbed: "https://www.youtube.com/embed/weZICfLdCkQ",
     accordions: {
-      howToGetThere: "From Cebu City, take a bus from North Bus Terminal to Catmon (1.5-2 hours, ₱80-100). Alternatively, hire a private car or motorcycle (habal-habal) for flexibility in exploring the mountain areas and hot springs.",
-      accommodation: "Stay at KUMS Vacation Beach House for beachfront luxury, Areca Palm Hut for eco-tourism, or local guesthouses for budget options. Mountain resorts near Mt. Kapayas offer cool climate stays.",
-      placesToVisit: "Esoy Hot Spring for therapeutic soaking, Mt. Kapayas for hiking with panoramic views, Rañola Beach Resort for swimming, Bercede Bay Resort for family fun, and local waterfalls for nature adventures."
+      howToGetThere: "From Cebu City, take a bus from North Bus Terminal heading to Catmon (approximately 1.5-2 hours, ₱80-100). Get off at Catmon town proper and take a tricycle or habal-habal to Rañola Beach Resort. If driving, follow the national highway northbound through Liloan, Compostela, and Danao until you reach Catmon.",
+      accommodation: "Rañola Beach Resort offers beachfront cottages and rooms at affordable rates. Nearby options include KUMS Vacation Beach House and Bercede Bay Resort for family stays. Budget guesthouses and homestays are also available in Catmon town proper.",
+      placesToVisit: "Rañola Beach Resort for swimming and beachside relaxation, Esoy Hot Spring for therapeutic soaking, Mt. Kapayas for hiking with panoramic views, Bercede Bay Resort for family fun, and explore the charming streets and local eateries of Catmon town."
     },
     restaurants: [
       {
@@ -1077,6 +1077,144 @@ const places = [
         locationCode: "Panagsama Beach, Moalboal",
         review: "Vibrant bar & restaurant with great cocktails, wood-fired pizza, and Filipino favorites. Perfect sunset spot after a day at the falls.",
         image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "dumaguete",
+    name: "Dumaguete City",
+    subtitle: "The City of Gentle People",
+    thumbnail: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=400&h=500&fit=crop",
+    locationLink: "https://maps.google.com/?q=Dumaguete+City+Negros+Oriental",
+    hashtags: ["#dumaguete", "#negrosoriental", "#gentlepeople", "#rizalboulevard", "#apoisland", "#visayas"],
+    categories: ["beach", "adventure", "diving", "nature"],
+    description: "Dumaguete City, fondly known as 'The City of Gentle People,' is the charming capital of Negros Oriental in the Central Visayas. This vibrant university town captivates visitors with its laid-back atmosphere, tree-lined Rizal Boulevard, rich cultural heritage, and easy access to world-class natural attractions. From swimming with sea turtles at Apo Island and marveling at the 'Maldives of the Philippines' Manjuyod Sandbar, to chasing the majestic Casaroro Falls and soaking in Pulangbato's red-hued waters, Dumaguete is a gateway to unforgettable adventures. The city's thriving food scene, highlighted by the famous Silvanas pastry, and its warm, welcoming locals make every visit feel like coming home.",
+    images: [
+      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=400&fit=crop"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/hjS-YY15hYk",
+    accordions: {
+      howToGetThere: "Fly directly to Dumaguete-Sibulan Airport from Manila or Cebu (1-1.5 hours). Alternatively, take a ferry from Cebu City to Dumaguete via OceanJet or Cokaliong (4-5 hours). From Liloan, Cebu, a short 20-minute ferry ride takes you to Sibulan Port, just 15 minutes north of the city center. Tricycles and multicabs are the main transport within the city.",
+      accommodation: "Choose from a range of options — boutique hotels along Rizal Boulevard, beachfront resorts in nearby Dauin, or budget-friendly guesthouses near Silliman University. Popular stays include The Henry Hotel, Harold's Mansion, and resorts in Dauin for diving access. Book ahead during the Buglasan Festival (October) and Sandurot Festival (November).",
+      placesToVisit: "Rizal Boulevard for sunset strolls and street food, Apo Island for turtle snorkeling and diving, Manjuyod Sandbar (the 'Maldives of the Philippines'), Casaroro Falls in Valencia for a jungle waterfall adventure, Pulangbato Falls for its unique red-hued waters, Balinsasayao Twin Lakes for kayaking and birdwatching, Silliman University campus for history, and a day trip to Siquijor Island."
+    },
+    restaurants: [
+      {
+        name: "Sans Rival Cakes & Pastries",
+        rating: 4.8,
+        reviews: 1856,
+        priceRange: "₱100–300",
+        type: "Bakery & Cafe",
+        locationCode: "San Jose Street, Dumaguete",
+        review: "A Dumaguete icon! Famous for its Silvanas — buttery, creamy, and unforgettable. A must-visit for every traveler.",
+        image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Lab-as Seafood Restaurant",
+        rating: 4.6,
+        reviews: 987,
+        priceRange: "₱200–500",
+        type: "Filipino Seafood",
+        locationCode: "Rizal Boulevard, Dumaguete",
+        review: "Fresh seafood galore with ocean views along Rizal Boulevard. Their grilled tuna belly is legendary!",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "ricasbeachresort",
+    name: "Rica's Beach Resort",
+    subtitle: "Poolside Paradise in San Remigio, Cebu",
+    thumbnail: "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/ricas beach resort/thumbnail.jpg",
+    locationLink: "https://maps.google.com/?q=Rica's+Beach+Resort+San+Remigio+Cebu",
+    hashtags: ["#ricasbeachresort", "#sanremigio", "#cebu", "#cebunorth", "#beachresort", "#hiddengemsph"],
+    categories: ["cebu", "beach"],
+    description: "Rica's Beach Resort is a charming family-friendly resort tucked away in Barangay Tambungon, San Remigio, Northern Cebu. Known for its inviting adult swimming pool, kiddie pool with mini waterpark and slide, and native-style huts with a rustic aesthetic, the resort offers a peaceful coastal escape just 3-4 hours from Cebu City. Guests can enjoy beachside relaxation, bonfire nights under the stars, and the laid-back vibe of San Remigio's quiet shores. With pet-friendly policies, free Wi-Fi, and affordable day-use and overnight rates, Rica's Beach Resort is a perfect getaway for families, barkadas, and couples looking for an off-the-beaten-path retreat in Northern Cebu.",
+    images: [
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/ricas beach resort/img01.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/ricas beach resort/img02.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/ricas beach resort/img03.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/ricas beach resort/img04.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/ricas beach resort/img05.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/ricas beach resort/img06.jpg"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/m40NWkSwIHY",
+    accordions: {
+      howToGetThere: "From Cebu City, take a bus from the North Bus Terminal heading to San Remigio (approximately 3-4 hours). Get off at Tambungon Public Market and take a habal-habal or tricycle to Rica's Beach Resort. If driving, use Waze or Google Maps and set your destination to 'Rica's Beach Resort' in San Remigio — parking is available at the resort.",
+      accommodation: "Rica's Beach Resort offers native-style huts and air-conditioned rooms for overnight stays, as well as day-use options with pool access. Cabanas and open cottages are available for groups. Nearby alternatives include San Remigio Beach Club for a more upscale stay and local guesthouses in San Remigio town proper.",
+      placesToVisit: "Rica's Beach Resort pools and beach area, Lapyahan sa San Remigio for sunset views, San Remigio Beach Club, nearby Hagnaya Port (gateway to Bantayan Island), and the northern Cebu coastline. Combine your trip with a visit to Bantayan Island or Malapascua Island for island hopping."
+    },
+    restaurants: [
+      {
+        name: "Mar Azul Restaurant",
+        rating: 4.8,
+        reviews: 120,
+        priceRange: "₱150–400",
+        type: "Seafood & Bar",
+        locationCode: "San Remigio, Cebu",
+        review: "Fresh seafood and cold drinks with a pleasant sea breeze. A local favorite for casual dining by the coast.",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      },
+      {
+        name: "Kahayag Inn and Restaurant",
+        rating: 4.8,
+        reviews: 95,
+        priceRange: "₱100–300",
+        type: "Filipino Cuisine & Bar",
+        locationCode: "San Remigio Town",
+        review: "Cozy inn with hearty Filipino dishes and a relaxing atmosphere. Great for winding down after a beach day.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
+      }
+    ]
+  },
+  {
+    id: "meili",
+    name: "Meili Beach Resort",
+    subtitle: "Coastal Serenity in Alcoy, Cebu",
+    thumbnail: "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/meili%20beach%20resort/thumbnail.jpg",
+    locationLink: "https://maps.google.com/?q=Meili+Beach+Resort+Alcoy+Cebu",
+    hashtags: ["#meilibeachresort", "#alcoy", "#cebu", "#beachfront", "#cebusouth", "#hiddengemsph"],
+    categories: ["cebu", "beach", "resort"],
+    description: "Meili Beach Resort is a charming 2-star beachfront property nestled in the picturesque coastal town of Alcoy, Cebu. Known for its serene atmosphere and breathtaking views of the Cebu Strait, it offers a tranquil escape from the hustle and bustle of city life. The resort features tastefully decorated rooms, an outdoor swimming pool, and a private beach area. It is conveniently located near Tingko Beach and offers easy access to Southern Cebu's popular attractions like Oslob whale watching and Nug-as bird watching.",
+    images: [
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/meili%20beach%20resort/img01.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/meili%20beach%20resort/img02.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/meili%20beach%20resort/img03.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/meili%20beach%20resort/img04.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/meili%20beach%20resort/img05.jpg",
+      "https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/hidden-places/meili%20beach%20resort/img06.jpg"
+    ],
+    youtubeEmbed: "https://www.youtube.com/embed/PPjnLAW7wAo",
+    accordions: {
+      howToGetThere: "From Cebu City South Bus Terminal, board a bus heading to South Cebu (Oslob/Santander/Liloan) and ask to be dropped off at Alcoy town proper or directly at the entrance of Meili Beach Resort (approximately 3 hours). If driving, follow the Natalio Bacalso Avenue southbound to Alcoy. Note that the resort entrance has a short, steep cemented road.",
+      accommodation: "Meili Beach Resort offers clean and spacious rooms, including double and triple rooms with cold showers, and garden bungalows with hot/cold shower options. All rooms feature private terraces with either pool, garden, or sea views. Free Wi-Fi is available in public areas.",
+      placesToVisit: "Tingko Beach (2 km away) for swimming and sunbathing, Obong Watchtower Ruins for history, Nug-as forest for bird watching (20-minute drive), and Oslob for whale shark watching (20-minute drive south)."
+    },
+    restaurants: [
+      {
+        name: "Swiss Cottage (On-site)",
+        rating: 4.5,
+        reviews: 120,
+        priceRange: "₱250–500",
+        type: "Local & International",
+        locationCode: "Meili Beach Resort",
+        review: "Great variety of local and international dishes served with a stunning view of the ocean.",
+        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop"
+      },
+      {
+        name: "D'Label Restaurant",
+        rating: 4.4,
+        reviews: 85,
+        priceRange: "₱200–400",
+        type: "Filipino Cuisine",
+        locationCode: "Alcoy, Cebu",
+        review: "Popular local dining spot known for delicious Filipino comfort food.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop"
       }
     ]
   }
