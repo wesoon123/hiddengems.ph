@@ -52,8 +52,8 @@ document.addEventListener('alpine:init', () => {
         scrollWheelZoom: true,
       }).setView([10.5, 123.0], 7);
 
-      // Dark-themed tile layer
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      // Light-themed tile layer
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
         subdomains: 'abcd',
         maxZoom: 19,
@@ -133,26 +133,41 @@ document.addEventListener('alpine:init', () => {
     },
 
     searchHotels() {
-      const query = this.searchQuery.toLowerCase().trim();
+      try {
+        const query = (this.searchQuery || '').toLowerCase().trim();
+        console.log('🔍 Searching hotels with query:', query);
 
-      if (!query) {
+        if (!query) {
+          this.hotels = [...this.allHotels];
+        } else {
+          this.hotels = this.allHotels.filter(h => {
+            if (!h) return false;
+
+            const nameMatch = h.name && String(h.name).toLowerCase().includes(query);
+            const locationMatch = h.location && String(h.location).toLowerCase().includes(query);
+            const categoryMatch = h.category && String(h.category).toLowerCase().includes(query);
+            const amenityMatch = Array.isArray(h.amenities) && h.amenities.some(a => 
+              a && String(a).toLowerCase().includes(query)
+            );
+
+            return nameMatch || locationMatch || categoryMatch || amenityMatch;
+          });
+        }
+
+        console.log(`✅ Filtered to ${this.hotels.length} results`);
+
+        // Update map markers
+        this.addMarkers(this.hotels);
+
+        // Fit map to visible markers
+        if (this.hotels.length > 0 && this.map) {
+          const bounds = L.latLngBounds(this.hotels.map(h => [h.lat, h.lng]));
+          this.map.fitBounds(bounds.pad(0.2));
+        }
+      } catch (error) {
+        console.error('❌ Error in searchHotels:', error);
+        // Fallback to showing all hotels if filtering fails
         this.hotels = [...this.allHotels];
-      } else {
-        this.hotels = this.allHotels.filter(h =>
-          h.name.toLowerCase().includes(query) ||
-          h.location.toLowerCase().includes(query) ||
-          h.category.toLowerCase().includes(query) ||
-          h.amenities.some(a => a.toLowerCase().includes(query))
-        );
-      }
-
-      // Update map markers
-      this.addMarkers(this.hotels);
-
-      // Fit map to visible markers
-      if (this.hotels.length > 0) {
-        const bounds = L.latLngBounds(this.hotels.map(h => [h.lat, h.lng]));
-        this.map.fitBounds(bounds.pad(0.2));
       }
     },
 

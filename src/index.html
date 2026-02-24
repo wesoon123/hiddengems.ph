@@ -163,12 +163,19 @@
         </header>
 
         <!-- Hero Section -->
-        <section class="relative min-h-[90vh] flex items-center justify-center hero-gradient overflow-hidden">
-            <!-- Background Pattern -->
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full blur-[100px]"></div>
-                <div class="absolute bottom-20 right-20 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
-                <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-accent rounded-full blur-[80px]"></div>
+        <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+            <!-- Background Video -->
+            <div class="absolute inset-0 z-0">
+                <video 
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline
+                    class="w-full h-full object-cover"
+                    src="https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/vid/fv.mp4">
+                </video>
+                <!-- Dark Overlay for Readability -->
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10"></div>
             </div>
             
             <!-- Hero Content -->
@@ -515,17 +522,14 @@
 
         <!-- Featured Video Section -->
         <section id="featured-video" class="relative overflow-hidden">
-            <!-- Background Video -->
+            <!-- Background Image -->
             <div class="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center">
                 <div class="absolute inset-0 z-0">
-                    <video 
-                        autoplay 
-                        muted 
-                        loop 
-                        playsinline
+                    <img 
+                        src="https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/vid/ft-img.png"
                         class="w-full h-full object-cover"
-                        src="https://zxslgsigjobqhoschyor.supabase.co/storage/v1/object/public/vid/fv.mp4">
-                    </video>
+                        alt="Philippine Paradise Panorama"
+                    >
                     <!-- Dark Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/40 to-dark/80 z-10"></div>
                 </div>
