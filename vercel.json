@@ -10,6 +10,14 @@
     {
       "source": "/api/places/:path*",
       "destination": "/api/places?id=:path*"
+    },
+    {
+      "source": "/api/hotels/:path*",
+      "destination": "/api/hotels?id=:path*"
+    },
+    {
+      "source": "/hotels",
+      "destination": "/hotels.html"
     }
   ],
   "headers": [

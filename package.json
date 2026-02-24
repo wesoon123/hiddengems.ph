@@ -4,8 +4,8 @@
   "description": "Hidden Gems PH - Discover beautiful destinations in the Philippines",
   "default": "index.js",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./",
+    "start": "parcel src/index.html src/hotels.html",
+    "build": "parcel build src/index.html src/hotels.html --public-url ./",
     "api": "node api/server.js",
     "dev": "concurrently \"npm run start\" \"npm run api\"",
     "sync": "node supabase/sync-to-supabase.js"

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels & Resorts | Hidden Gems PH</title>
+    <meta name="description" content="Find the best hotels and resorts across the Philippines. Explore on the map, get directions, and discover your perfect stay.">
+
+    <!-- Leaflet.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+
+    <!-- Page CSS -->
+    <link href="./css/hotels.css" rel="stylesheet" type="text/css">
+
+    <!-- Leaflet.js -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Leaflet Routing Machine -->
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+    <!-- Page JS -->
+    <script type="module" src="./js/hotels.js" defer></script>
+</head>
+
+<body>
+    <div class="hotels-wrapper" x-data="hotelsApp()" x-init="init()">
+
+        <!-- ========== HEADER ========== -->
+        <header class="hotels-header">
+            <div class="flex justify-between items-center">
+                <!-- Logo + Brand -->
+                <div class="flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-3 no-underline text-white">
+                        <img class="w-10 h-10 rounded-xl" src="https://res.cloudinary.com/dbhhps3yb/image/upload/v1763359276/logofficial_fcgaah.jpg" alt="Hidden Gems PH Logo">
+                        <span class="text-xl font-bold gradient-text hidden sm:block">HiddenGemsPH</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar (Center) -->
+                <div class="flex-1 max-w-md mx-4 hidden sm:block">
+                    <div class="relative">
+                        <input type="search"
+                            x-model="searchQuery"
+                            @input.debounce.300ms="searchHotels()"
+                            class="w-full bg-white/10 border border-white/20 rounded-full px-5 py-2.5 pl-11 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/40 transition-all text-sm"
+                            placeholder="Search hotels, resorts, locations...">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4.5 h-4.5 text-white/40 absolute left-4 top-1/2 -translate-y-1/2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <!-- Clear button -->
+                        <button x-show="searchQuery.length > 0"
+                            @click="searchQuery = ''; searchHotels()"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors cursor-pointer"
+                            x-cloak>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Nav -->
+                <nav class="flex items-center gap-4">
+                    <a href="/" class="text-white/70 hover:text-white text-sm font-medium transition-colors no-underline">← Home</a>
+                    <span class="text-white/30 hidden sm:inline">|</span>
+                    <span class="text-primary font-semibold text-sm hidden sm:inline">🏨 Hotels & Resorts</span>
+                </nav>
+            </div>
+
+            <!-- Mobile Search Bar (below header row on small screens) -->
+            <div class="sm:hidden mt-3">
+                <div class="relative">
+                    <input type="search"
+                        x-model="searchQuery"
+                        @input.debounce.300ms="searchHotels()"
+                        class="w-full bg-white/10 border border-white/20 rounded-full px-5 py-2.5 pl-11 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/40 transition-all text-sm"
+                        placeholder="Search hotels...">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4.5 h-4.5 text-white/40 absolute left-4 top-1/2 -translate-y-1/2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                    <button x-show="searchQuery.length > 0"
+                        @click="searchQuery = ''; searchHotels()"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors cursor-pointer"
+                        x-cloak>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== MAIN CONTENT (Split Panel) ========== -->
+        <div class="hotels-content">
+
+            <!-- LEFT SIDEBAR — Hotel Results -->
+            <div class="hotels-sidebar">
+                <!-- Results Count -->
+                <p class="results-count" x-text="`Showing ${hotels.length} hotel${hotels.length !== 1 ? 's' : ''}`"></p>
+
+                <!-- Hotel Cards -->
+                <template x-for="hotel in hotels" :key="hotel.id">
+                    <div :id="'hotel-card-' + hotel.id"
+                         class="hotel-card"
+                         :class="{ 'active': isSelected(hotel.id) }"
+                         @click="selectHotel(hotel)">
+
+                        <!-- Image -->
+                        <img :src="hotel.image" :alt="hotel.name" class="hotel-card-image" loading="lazy">
+
+                        <!-- Card Body -->
+                        <div class="hotel-card-body">
+                            <!-- Name -->
+                            <h3 class="hotel-card-name" x-text="hotel.name"></h3>
+
+                            <!-- Location -->
+                            <div class="hotel-card-location">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                </svg>
+                                <span x-text="hotel.location"></span>
+                            </div>
+
+                            <!-- Price + Rating -->
+                            <div class="flex justify-between items-center">
+                                <span class="hotel-card-price" x-text="hotel.price"></span>
+                                <div class="hotel-card-rating">
+                                    <span>⭐</span>
+                                    <span x-text="hotel.rating"></span>
+                                </div>
+                            </div>
+
+                            <!-- Amenities -->
+                            <div class="hotel-card-amenities">
+                                <template x-for="(amenity, idx) in hotel.amenities.slice(0, 4)" :key="idx">
+                                    <span class="amenity-tag" x-text="amenity"></span>
+                                </template>
+                                <template x-if="hotel.amenities.length > 4">
+                                    <span class="amenity-tag" x-text="'+' + (hotel.amenities.length - 4)"></span>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- No Results -->
+                <template x-if="hotels.length === 0">
+                    <div class="no-results">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <p class="text-lg font-semibold mb-1">No hotels found</p>
+                        <p class="text-sm">Try searching for a different location or name</p>
+                    </div>
+                </template>
+            </div>
+
+            <!-- RIGHT — Leaflet Map -->
+            <div class="hotels-map-container">
+                <div id="hotels-map"></div>
+
+                <!-- Direction Info Panel -->
+                <div x-show="routeInfo" x-cloak class="direction-info">
+                    <div>
+                        <div class="direction-info-label">Destination</div>
+                        <div class="direction-info-value" x-text="routeInfo?.hotel"></div>
+                    </div>
+                    <div>
+                        <div class="direction-info-label">Distance</div>
+                        <div class="direction-info-value" x-text="routeInfo?.distance"></div>
+                    </div>
+                    <div>
+                        <div class="direction-info-label">Est. Time</div>
+                        <div class="direction-info-value" x-text="routeInfo?.time"></div>
+                    </div>
+                    <div>
+                        <div class="direction-info-label">Suggested Price</div>
+                        <div class="direction-info-value" style="color: #00d4aa;" x-text="routeInfo?.price"></div>
+                    </div>
+                    <button @click="clearRoute()" class="direction-info-close" title="Close directions">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

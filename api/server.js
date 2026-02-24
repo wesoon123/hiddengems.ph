@@ -2,6 +2,7 @@
 const express = require('express');
 const { corsMiddleware, errorHandler } = require('./middleware');
 const placesRouter = require('./routes/places');
+const hotelsRouter = require('./routes/hotels');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/places', placesRouter);
+app.use('/api/hotels', hotelsRouter);
 
 // Health check
 app.get('/api/health', (req, res) => {

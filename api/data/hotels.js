@@ -1,0 +1,147 @@
+// Hotels/Resorts data for HiddenGemsPH API
+// Each entry includes lat/lng for Leaflet.js map markers
+
+const hotels = [
+  {
+    id: 1,
+    name: "Meili Beach Resort",
+    location: "Camiguin",
+    price: "₱3,500/night",
+    priceRange: { min: 3500, max: 5000 },
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop",
+    description: "Experience paradise at Meili Beach Resort, where crystal-clear waters meet pristine white sands. Perfect for relaxation and adventure.",
+    amenities: ["Beachfront", "Pool", "Restaurant", "Free Wi-Fi", "Air Conditioning"],
+    lat: 9.1733,
+    lng: 124.7286,
+    category: "resort"
+  },
+  {
+    id: 2,
+    name: "Shangri-La Mactan Resort & Spa",
+    location: "Mactan Island, Cebu",
+    price: "₱12,000/night",
+    priceRange: { min: 12000, max: 25000 },
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
+    description: "A world-class luxury resort on Mactan Island featuring private beaches, marine sanctuary, and CHI Spa. The ultimate tropical luxury experience in Cebu.",
+    amenities: ["Private Beach", "Spa", "Multiple Pools", "Fine Dining", "Water Sports", "Kids Club", "Free Wi-Fi"],
+    lat: 10.2867,
+    lng: 124.0075,
+    category: "resort"
+  },
+  {
+    id: 3,
+    name: "Plantation Bay Resort & Spa",
+    location: "Mactan Island, Cebu",
+    price: "₱8,500/night",
+    priceRange: { min: 8500, max: 18000 },
+    rating: 4.7,
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop",
+    description: "Spread across 11 hectares, Plantation Bay features the largest saltwater lagoon in the Philippines. A tropical oasis with world-class amenities and service.",
+    amenities: ["Lagoon Pool", "Spa", "Restaurant", "Gym", "Water Sports", "Tennis Court", "Free Wi-Fi"],
+    lat: 10.2711,
+    lng: 124.0089,
+    category: "resort"
+  },
+  {
+    id: 4,
+    name: "Bluewater Sumilon Island Resort",
+    location: "Oslob, Cebu",
+    price: "₱7,000/night",
+    priceRange: { min: 7000, max: 15000 },
+    rating: 4.6,
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&h=400&fit=crop",
+    description: "An exclusive island resort near the famous whale shark watching site. Features a stunning shifting sandbar, crystal-clear lagoon, and pristine coral reefs.",
+    amenities: ["Private Island", "Sandbar", "Snorkeling", "Restaurant", "Kayaking", "Free Wi-Fi"],
+    lat: 9.3703,
+    lng: 123.3856,
+    category: "resort"
+  },
+  {
+    id: 5,
+    name: "Kota Beach Resort",
+    location: "Bantayan Island, Cebu",
+    price: "₱4,200/night",
+    priceRange: { min: 4200, max: 8000 },
+    rating: 4.5,
+    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&h=400&fit=crop",
+    description: "A beachfront paradise on Bantayan Island with powdery white sand and turquoise waters. Perfect for island getaways with a relaxed, tropical vibe.",
+    amenities: ["Beachfront", "Pool", "Restaurant", "Bar", "Free Wi-Fi", "Airport Transfers"],
+    lat: 11.1714,
+    lng: 123.7258,
+    category: "resort"
+  },
+  {
+    id: 6,
+    name: "Noordzee Hostel & Beach Resort",
+    location: "Bantayan Island, Cebu",
+    price: "₱1,800/night",
+    priceRange: { min: 1800, max: 3500 },
+    rating: 4.3,
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&h=400&fit=crop",
+    description: "A cozy and affordable beachfront hostel on Bantayan Island. Great for backpackers and budget travelers who still want a premium beach experience.",
+    amenities: ["Beachfront", "Dormitory", "Restaurant", "Bar", "Free Wi-Fi", "Bike Rental"],
+    lat: 11.1685,
+    lng: 123.7231,
+    category: "boutique"
+  },
+  {
+    id: 7,
+    name: "Two Seasons Coron Island Resort & Spa",
+    location: "Coron, Palawan",
+    price: "₱15,000/night",
+    priceRange: { min: 15000, max: 30000 },
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop",
+    description: "An exclusive overwater bungalow resort in Coron with direct access to stunning lagoons and world-class diving sites. Luxury meets nature at its finest.",
+    amenities: ["Overwater Bungalow", "Spa", "Infinity Pool", "Fine Dining", "Diving Center", "Kayaking", "Free Wi-Fi"],
+    lat: 11.9981,
+    lng: 120.2042,
+    category: "resort"
+  },
+  {
+    id: 8,
+    name: "El Nido Resorts - Pangulasian Island",
+    location: "El Nido, Palawan",
+    price: "₱20,000/night",
+    priceRange: { min: 20000, max: 40000 },
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=600&h=400&fit=crop",
+    description: "The crown jewel of El Nido resorts. A luxury eco-resort on a private island with stunning limestone cliff views, world-class snorkeling, and sustainable hospitality.",
+    amenities: ["Private Island", "Eco-Resort", "Spa", "Infinity Pool", "Snorkeling", "Island Hopping", "All-Inclusive"],
+    lat: 11.1819,
+    lng: 119.3917,
+    category: "resort"
+  },
+  {
+    id: 9,
+    name: "Brumini Resort Oslob",
+    location: "Oslob, Cebu",
+    price: "₱2,500/night",
+    priceRange: { min: 2500, max: 4500 },
+    rating: 4.4,
+    image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&h=400&fit=crop",
+    description: "A charming seaside resort in Oslob, steps away from the famous whale shark watching area. Enjoy ocean views, delicious seafood, and Southern Cebu adventures.",
+    amenities: ["Ocean View", "Restaurant", "Whale Shark Tours", "Free Wi-Fi", "Parking"],
+    lat: 9.4619,
+    lng: 123.3803,
+    category: "hotel"
+  },
+  {
+    id: 10,
+    name: "Harana Surf Resort",
+    location: "Siargao Island",
+    price: "₱5,500/night",
+    priceRange: { min: 5500, max: 10000 },
+    rating: 4.7,
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop",
+    description: "A premium surf resort steps from the legendary Cloud 9 break. Combining Filipino hospitality with world-class surf amenities for the ultimate Siargao experience.",
+    amenities: ["Surfboard Rental", "Pool", "Restaurant", "Bar", "Surf Lessons", "Free Wi-Fi", "Airport Transfers"],
+    lat: 9.8167,
+    lng: 126.1500,
+    category: "resort"
+  }
+];
+
+module.exports = hotels;
